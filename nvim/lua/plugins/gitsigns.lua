@@ -2,15 +2,16 @@ return {
 	{
 		-- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = "VeryLazy",
 		opts = {
 			-- See `:help gitsigns.txt`
 			signs = {
 				add = { text = "+" },
 				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
+				delete = { text = "▁" },
+				topdelete = { text = "▔" },
 				changedelete = { text = "~" },
+				untracked = { text = '┆' },
 			},
 			on_attach = function(bufnr)
 				vim.keymap.set("n", "<leader>hp", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "Preview git hunk" })
@@ -37,5 +38,5 @@ return {
 				end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
 			end,
 		},
-},
+	},
 }

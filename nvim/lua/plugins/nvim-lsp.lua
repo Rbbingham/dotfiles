@@ -2,7 +2,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		dependencies = {
 			-- Automatically install LSPs to stdpath for neovim
 			"williamboman/mason.nvim",
@@ -119,18 +118,16 @@ return {
 					filetypes = { "tex", "plaintex", "bib" },
 					single_file_support = true,
 					settings = {
-						texlab = {
-							build = {
-								args = { "-src", "-silent", "-output-directory=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
-								executable = "latexmk",
-								forwardSearchAfter = true,
-								onSave = false
-							},
-							auxDirectory = "build",
-							forwardSearch = {
-								args = { "--synctex-forward", "%l:1:%f", "%p" },
-								executable = "zathura",
-							},
+						build = {
+							args = { "-pdf", "-output-directory=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
+							executable = "latexmk",
+							forwardSearchAfter = true,
+							onSave = false
+						},
+						auxDirectory = "build",
+						forwardSearch = {
+							args = { "--synctex-forward", "%l:1:%f", "%p" },
+							executable = "zathura",
 						},
 					},
 				},
