@@ -1,22 +1,19 @@
 return {
 	{
-		"echasnovski/mini.align",
-		version = false,
+		"godlygeek/tabular",
 		event = "VeryLazy",
-		config = function()
-			require("mini.align").setup()
-		end
 	},
 
 	{
 		"stevearc/conform.nvim",
 		lazy = true,
+		cmd = { "ConformInfo" },
 		config = function()
 			require("conform").setup({
 				formatters_by_ft = {
 					c = { "clang_format" },
 					cpp = { "clang_format" },
-					javascript = { { "prettier" } },
+					javascript = { "prettier" },
 					lua = { "stylua" },
 					python = { "black" },
 					rust = { "rustfmt" },

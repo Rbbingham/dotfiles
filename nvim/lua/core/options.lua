@@ -87,6 +87,11 @@ local global = {
 	mapleader = ",", -- set the leader key
 	maplocalleader = ",", -- set the local leader key
 	python3_host_prog = "/usr/bin/python3",
+	loaded_ruby_provider = 0,
+	loaded_node_provider = 0,
+	loaded_perl_provider = 0,
+	load_doxygen_syntax = 1,
+	doxygen_enhanced_color = 1,
 }
 
 for name, value in pairs(options) do

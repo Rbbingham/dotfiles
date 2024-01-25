@@ -6,7 +6,7 @@ return {
 
 	{
 		"nvim-lua/plenary.nvim",
-		lazy = true,
+		event = "VeryLazy",
 	},
 
 	{
@@ -38,7 +38,7 @@ return {
 			git = {
 				enable = false,
 				ignore = true,
-				},
+			},
 			filesystem_watchers = {
 				enable = true,
 			},

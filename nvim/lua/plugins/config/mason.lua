@@ -1,5 +1,5 @@
 local options = {
-	ensure_installed = { "lua-language-server", "clangd", "cmake-language-server", "pyright", "marksman", "texlab" }, -- not an option from mason.nvim
+	ensure_installed = { "lua-language-server", "clangd", "cmake-language-server", "pyright", "marksman", "texlab" },
 
 	PATH = "skip",
 

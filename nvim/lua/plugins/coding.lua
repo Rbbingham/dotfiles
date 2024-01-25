@@ -55,31 +55,52 @@ return {
 		end,
 	},
 
+	-- Markdown
 	{
-		"jakewvincent/mkdnflow.nvim",
-		ft = { "markdown" },
-		config = function()
-			require("mkdnflow").setup({
-				perspective = {
-					priority = "root",
-					root_tell = "index.md",
-				},
-				new_file_template = {
-					use_template = true,
-					template = [[
-# {{ title }}
-Date: {{ date }}
-]],
-					placeholders = {
-						before = {
-							date = function()
-								return os.date("%A, %B %d, %Y") -- Wednesday, March 1, 2023
-							end
-						},
-					}
-				},
+		"renerocksai/telekasten.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    event = "VeryLazy",
+		config = function ()
+			require("telekasten").setup({
+				home = vim.fn.expand("~/Documents/Notes/"),
+				dailies = vim.fn.expand("~/Documents/Notes/"),
+				weeklies = vim.fn.expand("~/Documents/Notes/"),
+				templates = vim.fn.expand("~/.config/nvim/templates/"),
+
+				template_new_note = vim.fn.expand("~/.config/nvim/templates/notes/notes.md"),
+				template_new_daily = vim.fn.expand("~/.config/nvim/templates/dailies/dailies.md"),
+				template_new_weekly = vim.fn.expand("~/.config/nvim/templates/weeklies/weeklies.md"),
+
+				new_note_filename = "uuid-title",
+				uuid_type = "%Y-%m-%d",
 			})
+
+			-- Launch panel if nothing is typed after <leader>z
+			vim.keymap.set("n", "<leader>z", "<cmd>Telekasten panel<CR>")
+
+			-- Most used functions
+			vim.keymap.set("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
+			vim.keymap.set("n", "<leader>zd", "<cmd>Telekasten goto_today<CR>")
+			vim.keymap.set("n", "<leader>zz", "<cmd>Telekasten follow_link<CR>")
+			vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
+			vim.keymap.set("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
+			vim.keymap.set("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
+			vim.keymap.set("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
+
+			-- Call insert link automatically when we start typing a link
+			vim.keymap.set("i", "[[", "<cmd>Telekasten insert_link<CR>")
+
 		end
+	},
+
+	{
+		"renerocksai/calendar-vim",
+		event = "VeryLazy"
+	},
+
+	{
+		"mzlogin/vim-markdown-toc",
+		ft = { "markdown" }
 	},
 
 	{
@@ -89,6 +110,25 @@ Date: {{ date }}
 		build = function() vim.fn["mkdp#util#install"]() end,
 	},
 
+	-- SQL
+	{
+		"kristijanhusak/vim-dadbod-ui",
+		dependencies = {
+			{ "tpope/vim-dadbod", lazy = true },
+
+			{
+				"kristijanhusak/vim-dadbod-completion",
+				ft = { "sql", "mysql", "plsql" },
+				lazy = true
+			},
+		},
+		cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
+		init = function()
+			vim.g.db_ui_use_nerd_fonts = 1
+		end
+	},
+
+	-- Latex
 	{
 		"lervag/vimtex",
 		ft = { "tex", "plain", "bib" },

@@ -21,7 +21,7 @@ M.on_attach = function(client, bufnr)
 
   -- See `:help K` for why this keymap
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-  nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+  nmap("<leader>k", vim.lsp.buf.signature_help, "Signature Documentation")
 
   -- Lesser used LSP functionality
   nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -130,7 +130,13 @@ lsp.pyright.setup {
   single_file_support = true,
 }
 
-lsp.marksman.setup {}
+lsp.marksman.setup {
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+
+	cmd = { "marksman", "server" },
+	filetypes = { "markdown", "markdown.mdx" }
+}
 
 lsp.texlab.setup {
   on_attach = M.on_attach,

@@ -17,9 +17,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-	install = {
-		colorscheme = { "tokyonight" },
-	},
 	ui = {
 		icons = {
 			ft = "",
@@ -30,6 +27,7 @@ require("lazy").setup("plugins", {
 	},
 	performance = {
 		rtp = {
+			reset = true,
 			disabled_plugins = {
 				"2html_plugin",
 				"tohtml",
@@ -62,7 +60,9 @@ require("lazy").setup("plugins", {
 		},
 		cache = {
 			enabled = true,
-		}
+			path = vim.fn.stdpath("cache") .. "/lazy/cache",
+		},
+		reset_packpath = true,
 	},
 	change_detection = {
 		enabled = true,

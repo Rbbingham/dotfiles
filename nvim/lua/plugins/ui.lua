@@ -66,4 +66,9 @@ return {
 		  return require("plugins.config.others").gitsigns
 		end,
 	},
+
+	{
+		"kshenoy/vim-signature",
+		event = "VeryLazy",
+	},
 }
