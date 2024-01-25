@@ -16,7 +16,7 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -v
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# Keep 500 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=500
 SAVEHIST=500
 HISTFILE=~/.zsh_history
@@ -149,7 +149,7 @@ export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH"
 
 # Aliases
 # Alias eza better ls
-eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
+eza_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale=all')
 
 alias ls='eza ${eza_params}'
 alias l='eza --git-ignore ${eza_params}'
@@ -168,6 +168,9 @@ EDITOR=/usr/local/bin/nvim
 
 # Autoupdate
 alias update="sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade && sudo apt-get autoclean"
+
+# Alias kitty's image display command
+alias icat="kitten icat"
 
 # Plugin config
 # Make Tab and ShiftTab cycle completions on the command line
