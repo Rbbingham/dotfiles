@@ -1,6 +1,6 @@
 local M = {}
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
       desc = "LSP: " .. desc
@@ -38,6 +38,7 @@ M.on_attach = function(client, bufnr)
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
 
 M.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
@@ -63,24 +64,25 @@ lsp.lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
-        }
-      },
-      hint = { enable = true },
-      maxPreload = 100000,
-      preloadFileSize = 10000,
-    },
-  },
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			runtime = {
+				version = 'LuaJIT'
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME
+				}
+			},
+			hint = { enable = true },
+			maxPreload = 100000,
+			preloadFileSize = 10000,
+		}
+	}
 }
 
 lsp.clangd.setup {
@@ -94,8 +96,10 @@ lsp.clangd.setup {
     "--clang-tidy",
     "--query-driver=/usr/bin/g++",
   },
-  filetypes = { "c", "cpp", "objc", "objcpp" },
+  single_file_support = true,
+  filetypes = { "c", "cc", "cpp", "h", "objc", "objcpp" },
 }
+
 
 lsp.cmake.setup {
   on_attach = M.on_attach,
@@ -113,17 +117,16 @@ lsp.pyright.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 
-  cmd = { vim.fn.stdpath("data") .. "/mason/bin/pyright-langserver", "--stdio" },
+  cmd = { "pyright-langserver", "--stdio" },
   filetypes = { "python" },
   python = {
     disableLanguageServices = false,
     disableOrganizeImports = false,
-    openFilesOnly = false,
     analysis = {
       autoImportCompletions = true,
       autoSearchPaths = true,
       diagnosticMode = "workspace",
-      typeCheckingMode = "basic", -- off, basic, strict
+      typeCheckingMode = "standard",
       useLibraryCodeForTypes = true,
     }
   },
@@ -136,6 +139,14 @@ lsp.marksman.setup {
 
 	cmd = { "marksman", "server" },
 	filetypes = { "markdown", "markdown.mdx" }
+}
+
+lsp.sqlls.setup {
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+
+	cmd = { "sql-language-server", "up", "--method", "stdio" },
+	filetypes = { "sql", "mysql" },
 }
 
 lsp.texlab.setup {

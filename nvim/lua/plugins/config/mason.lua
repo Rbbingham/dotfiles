@@ -1,5 +1,5 @@
 local options = {
-	ensure_installed = { "lua-language-server", "clangd", "cmake-language-server", "pyright", "marksman", "texlab" },
+	ensure_installed = { "lua-language-server", "clangd", "cmake-language-server", "pyright", "marksman", "sqlls", "texlab" },
 
 	PATH = "skip",
 
