@@ -1,5 +1,6 @@
 return {
 	{
+		-- TODO: optimize lualine
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		opts = {

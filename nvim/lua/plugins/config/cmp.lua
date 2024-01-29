@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local config = cmp.get_config()
 
 local kind_icons = {
 	Text = "",
@@ -110,8 +109,6 @@ local options = {
 		},
 
 		-- TODO: setup sources for specific buffers
-		-- TODO: setup priority of sources
-
 		sources = {
 			{ name = "nvim_lsp", priority = 1000 },
 			{ name = "luasnip", priority = 750 },
@@ -120,11 +117,10 @@ local options = {
 		},
 	}),
 
-	-- TODO: get snppets to work in vim-dadbod
 	cmp.setup.filetype({"sql", "mysql", "plsql"}, {
 		sources = {
-			{ name = "luasnip", priority = 8 },
-			{ name = "vim-dadbod-completion", priority = 7 },
+			{ name = "luasnip", priority = 1000 },
+			{ name = "vim-dadbod-completion", priority = 750 },
 		}
 	})
 }

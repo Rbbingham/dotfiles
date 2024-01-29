@@ -58,7 +58,7 @@ return {
 	{
 		"renerocksai/telekasten.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
-    event = "VeryLazy",
+    cmd = { "Telekasten" },
 		config = function ()
 			require("telekasten").setup({
 				home = vim.fn.expand("~/Documents/Notes/"),
