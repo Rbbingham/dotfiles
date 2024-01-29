@@ -17,14 +17,15 @@ local options = {
 		"regex",
 		"rust",
 		"sql",
+		"vimdoc",
 	},
 	sync_install = false,
-	auto_install = true,
+	auto_install = false,
 	highlight = {
 		enable = true,
 		use_languagetree = true,
 	},
-	indent = { enable = true },
+	indent = { enable = false },
 	incremental_selection = {
 		enable = true,
 		keymaps = {

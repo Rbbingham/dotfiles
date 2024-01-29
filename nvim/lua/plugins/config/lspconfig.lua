@@ -113,24 +113,20 @@ lsp.cmake.setup {
   single_file_support = true,
 }
 
-lsp.pyright.setup {
+lsp.pylsp.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 
-  cmd = { "pyright-langserver", "--stdio" },
-  filetypes = { "python" },
-  python = {
-    disableLanguageServices = false,
-    disableOrganizeImports = false,
-    analysis = {
-      autoImportCompletions = true,
-      autoSearchPaths = true,
-      diagnosticMode = "workspace",
-      typeCheckingMode = "standard",
-      useLibraryCodeForTypes = true,
-    }
-  },
-  single_file_support = true,
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+				ignore = {'W391'},
+				maxLineLength = 100
+				}
+			}
+		}
+	}
 }
 
 lsp.marksman.setup {

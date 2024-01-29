@@ -66,6 +66,9 @@ return {
 		opts = function()
 		  return require("plugins.config.others").gitsigns
 		end,
+		config = function(_, opts)
+			require("gitsigns").setup(opts)
+		end,
 	},
 
 	{

@@ -39,7 +39,6 @@ M.gitsigns = {
 M.luasnip = function(_)
   require("luasnip.loaders.from_vscode").lazy_load()
 
-  require("luasnip").filetype_extend("telekasten", {"markdown"})
   require("luasnip").filetype_extend("mysql", {"sql"})
   require("luasnip").filetype_extend("plsql", {"sql"})
 
@@ -54,5 +53,22 @@ M.luasnip = function(_)
     end,
   })
 end
+
+M.telekasten = {
+	home = vim.fn.expand("~/Documents/Notes/"),
+	dailies = vim.fn.expand("~/Documents/Notes/"),
+	weeklies = vim.fn.expand("~/Documents/Notes/"),
+	templates = vim.fn.expand("~/.config/nvim/templates/"),
+
+	template_new_note = vim.fn.expand("~/.config/nvim/templates/notes/notes.md"),
+	template_new_daily = vim.fn.expand("~/.config/nvim/templates/dailies/dailies.md"),
+	template_new_weekly = vim.fn.expand("~/.config/nvim/templates/weeklies/weeklies.md"),
+
+	new_note_filename = "uuid-title",
+	uuid_type = "%Y-%m-%d",
+
+	take_over_my_home = false,
+	auto_set_filetype = false,
+}
 
 return M

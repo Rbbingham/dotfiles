@@ -25,7 +25,7 @@ return {
 					require("nvim-autopairs").setup(opts)
 
 					-- setup cmp for autopairs
-					local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+					local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 					require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
 				end,
 			},
@@ -58,21 +58,13 @@ return {
 	{
 		"renerocksai/telekasten.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
+    ft = { "markdown" },
     cmd = { "Telekasten" },
-		config = function ()
-			require("telekasten").setup({
-				home = vim.fn.expand("~/Documents/Notes/"),
-				dailies = vim.fn.expand("~/Documents/Notes/"),
-				weeklies = vim.fn.expand("~/Documents/Notes/"),
-				templates = vim.fn.expand("~/.config/nvim/templates/"),
-
-				template_new_note = vim.fn.expand("~/.config/nvim/templates/notes/notes.md"),
-				template_new_daily = vim.fn.expand("~/.config/nvim/templates/dailies/dailies.md"),
-				template_new_weekly = vim.fn.expand("~/.config/nvim/templates/weeklies/weeklies.md"),
-
-				new_note_filename = "uuid-title",
-				uuid_type = "%Y-%m-%d",
-			})
+    opts = function()
+			return require("plugins.config.others").telekasten
+    end,
+		config = function(_, opts)
+			require("telekasten").setup(opts)
 
 			-- Launch panel if nothing is typed after <leader>z
 			vim.keymap.set("n", "<leader>z", "<cmd>Telekasten panel<CR>")
@@ -99,7 +91,7 @@ return {
 
 	{
 		"mzlogin/vim-markdown-toc",
-		ft = { "markdown" }
+		ft = { "markdown" },
 	},
 
 	{

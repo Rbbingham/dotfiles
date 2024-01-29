@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local config = cmp.get_config()
 
 local kind_icons = {
 	Text = "",
