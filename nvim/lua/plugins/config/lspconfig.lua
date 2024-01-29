@@ -141,14 +141,6 @@ lsp.marksman.setup {
 	filetypes = { "markdown", "markdown.mdx" }
 }
 
-lsp.sqlls.setup {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-
-	cmd = { "sql-language-server", "up", "--method", "stdio" },
-	filetypes = { "sql", "mysql" },
-}
-
 lsp.texlab.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
