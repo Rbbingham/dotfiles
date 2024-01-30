@@ -12,7 +12,7 @@ return {
 				config = function(_, opts)
 					require("plugins.config.others").luasnip(opts)
 				end,
-      },
+			},
 
 			-- autopairing of (){}[] etc
 			{
@@ -57,12 +57,12 @@ return {
 	-- Markdown
 	{
 		"renerocksai/telekasten.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    ft = { "markdown" },
-    cmd = { "Telekasten" },
-    opts = function()
+		dependencies = { "nvim-telescope/telescope.nvim" },
+		ft = { "markdown" },
+		cmd = { "Telekasten" },
+		opts = function()
 			return require("plugins.config.others").telekasten
-    end,
+		end,
 		config = function(_, opts)
 			require("telekasten").setup(opts)
 
@@ -80,7 +80,6 @@ return {
 
 			-- Call insert link automatically when we start typing a link
 			vim.keymap.set("i", "[[", "<cmd>Telekasten insert_link<CR>")
-
 		end
 	},
 
@@ -131,10 +130,10 @@ return {
 			vim.g.vimtex_syntax_enabled = 1
 			vim.g.vimtex_compiler_method = "latexmk"
 			vim.g.vimtex_log_ignore = ({
-  			"Underfull",
-  			"Overfull",
-  			"specifier changed to",
-  			"Token not allowed in a PDF string",
+				"Underfull",
+				"Overfull",
+				"specifier changed to",
+				"Token not allowed in a PDF string",
 			})
 			vim.g.vimtex_compiler_latexmk = {
 				aux_dir = "./build",

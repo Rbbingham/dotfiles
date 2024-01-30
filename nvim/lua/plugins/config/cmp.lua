@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local config = cmp.get_config()
 
 local kind_icons = {
 	Text = "",
@@ -48,7 +47,7 @@ local formatting_style = {
 		return vim_item
 	end,
 
-	fields = { "kind", "abbr", "menu"},
+	fields = { "kind", "abbr", "menu" },
 }
 
 local options = {
@@ -59,7 +58,7 @@ local options = {
 
 		formatting = formatting_style,
 
-  	window = {
+		window = {
 			completion = {
 				scrollbar = false,
 				side_padding = 0,
@@ -68,7 +67,7 @@ local options = {
 			documentation = {
 				border = "single",
 			}
-  	},
+		},
 
 		snippet = {
 			expand = function(args)
@@ -112,15 +111,15 @@ local options = {
 		-- TODO: setup sources for specific buffers
 		sources = {
 			{ name = "nvim_lsp", priority = 1000 },
-			{ name = "luasnip", priority = 750 },
-			{ name = "buffer", priority = 500 },
-			{ name = "path", priority = 250 },
+			{ name = "luasnip",  priority = 750 },
+			{ name = "buffer",   priority = 500 },
+			{ name = "path",     priority = 250 },
 		},
 	}),
 
-	cmp.setup.filetype({"sql", "mysql", "plsql"}, {
+	cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
 		sources = {
-			{ name = "luasnip", priority = 1000 },
+			{ name = "luasnip",               priority = 1000 },
 			{ name = "vim-dadbod-completion", priority = 750 },
 		}
 	})
