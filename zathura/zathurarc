@@ -16,8 +16,10 @@ set scroll-step 100
 set zoom-min 10
 set guioptions ""
 
+set sandbox none
+
 # zathurarc-tokyo-night
-set font "Hack Nerd Font Regular 12"
+set font "Fira Code Regular 12"
 set notification-error-bg "#f7768e"
 set notification-error-fg "#c0caf5"
 set notification-warning-bg "#e0af68"
