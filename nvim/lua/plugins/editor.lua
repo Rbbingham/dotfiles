@@ -35,8 +35,6 @@ return {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				lazy = true,
-				-- NOTE: If you are having trouble with this installation,
-				--       refer to the README for telescope-fzf-native for more instructions.
 				build = "make",
 				cond = function()
 					return vim.fn.executable "make" == 1
@@ -54,7 +52,7 @@ return {
 					},
 				},
 			})
-			pcall(require("telescope").load_extension, "fzf")
+			pcall(require("telescope").load_extension("fzf"))
 
 			-- See `:help telescope.builtin`
 			vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

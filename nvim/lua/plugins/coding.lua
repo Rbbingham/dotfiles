@@ -11,6 +11,7 @@ return {
 				opts = { history = true, updateevents = "TextChanged,TextChangedI" },
 				config = function(_, opts)
 					require("plugins.config.others").luasnip(opts)
+					require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
 				end,
 			},
 
