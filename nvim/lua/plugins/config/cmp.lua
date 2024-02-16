@@ -111,15 +111,15 @@ local options = {
 		-- TODO: setup sources for specific buffers
 		sources = {
 			{ name = "nvim_lsp", priority = 1000 },
-			{ name = "luasnip",  priority = 750 },
-			{ name = "buffer",   priority = 500 },
-			{ name = "path",     priority = 250 },
+			{ name = "luasnip", priority = 750 },
+			{ name = "buffer", priority = 500 },
+			{ name = "path", priority = 250 },
 		},
 	}),
 
 	cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
 		sources = {
-			{ name = "luasnip",               priority = 1000 },
+			{ name = "luasnip", priority = 1000 },
 			{ name = "vim-dadbod-completion", priority = 750 },
 		}
 	})

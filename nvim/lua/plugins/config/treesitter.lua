@@ -1,5 +1,4 @@
 local options = {
-	ignore_install = { "latex" },
 	ensure_installed = {
 		"bash",
 		"c",
@@ -9,6 +8,7 @@ local options = {
 		"doxygen",
 		"diff",
 		"json",
+		"latex",
 		"lua",
 		"make",
 		"markdown",

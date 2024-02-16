@@ -1,0 +1,9 @@
+-- local utils = require("snippets.util.utils")
+--
+-- return {
+-- 	s({ name = "Fraction", trig = "ff", wordTrig = false, condition = pipe({ utils.})}, {
+-- 		t("\\frac{"), i(1), t("}{"), i(2), t("}")
+-- 	}, {
+-- 		show_condition = utils.in_mathzone()
+-- 	}),
+-- }

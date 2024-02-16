@@ -36,11 +36,15 @@ M.gitsigns = {
 	end,
 }
 
-M.luasnip = function(_)
+M.luasnip = function(opts)
+	require("luasnip").config.set_config(opts)
+
 	require("luasnip.loaders.from_vscode").lazy_load()
 
 	require("luasnip").filetype_extend("mysql", { "sql" })
 	require("luasnip").filetype_extend("plsql", { "sql" })
+
+	require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
 
 	vim.api.nvim_create_autocmd("InsertLeave", {
 		callback = function()

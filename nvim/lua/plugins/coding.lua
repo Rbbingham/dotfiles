@@ -1,5 +1,16 @@
 return {
 	{
+		"iurimateus/luasnip-latex-snippets.nvim",
+		-- vimtex isn't required if using treesitter
+		requires = { "L3MON4D3/LuaSnip" },
+		config = function()
+			require'luasnip-latex-snippets'.setup()
+			-- or setup({ use_treesitter = true })
+			require("luasnip").config.setup { enable_autosnippets = true }
+		end,
+	},
+
+	{
 		-- Autocompletion
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -8,10 +19,9 @@ return {
 				-- snippet plugin
 				"L3MON4D3/LuaSnip",
 				dependencies = "rafamadriz/friendly-snippets",
-				opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+				opts = { history = true, updateevents = "TextChanged,TextChangedI", enable_autosnippets = true },
 				config = function(_, opts)
 					require("plugins.config.others").luasnip(opts)
-					require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
 				end,
 			},
 

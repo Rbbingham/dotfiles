@@ -120,10 +120,18 @@ lsp.pylsp.setup {
 	settings = {
 		pylsp = {
 			plugins = {
+				pylint = {
+					enabled = true,
+				},
+				mypy = {
+					enabled = true,
+				},
 				pycodestyle = {
-					ignore = { 'W391' },
-					maxLineLength = 100
-				}
+					enabled = false,
+				},
+				isort = {
+					enabled = true,
+				},
 			}
 		}
 	}
@@ -132,9 +140,6 @@ lsp.pylsp.setup {
 lsp.marksman.setup {
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
-
-	cmd = { "marksman", "server" },
-	filetypes = { "markdown", "markdown.mdx" }
 }
 
 lsp.texlab.setup {
