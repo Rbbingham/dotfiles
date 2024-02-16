@@ -1,7 +1,6 @@
 local opts = {
 	filters = {
 		dotfiles = false,
-		exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
 	},
 	disable_netrw = true,
 	hijack_netrw = true,
@@ -33,20 +32,13 @@ local opts = {
 	renderer = {
 		root_folder_label = false,
 		highlight_git = false,
-		highlight_opened_files = "none",
+		highlight_opened_files = "icon",
 
 		indent_markers = {
 			enable = false,
 		},
 
 		icons = {
-			show = {
-				file = true,
-				folder = true,
-				folder_arrow = true,
-				git = false,
-			},
-
 			glyphs = {
 				default = "󰈚",
 				symlink = "",
