@@ -1,4 +1,5 @@
 local M = {}
+local lsp = require("lspconfig")
 
 M.on_attach = function(_, bufnr)
 	local nmap = function(keys, func, desc)
@@ -38,7 +39,7 @@ M.on_attach = function(_, bufnr)
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
+-- M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
 
 M.capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },
@@ -58,110 +59,109 @@ M.capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-local lsp = require("lspconfig")
+M.defaults = function()
+	lsp.lua_ls.setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities,
 
-lsp.lua_ls.setup {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-			runtime = {
-				version = 'LuaJIT'
-			},
-			workspace = {
-				checkThirdParty = false,
-				library = {
-					vim.env.VIMRUNTIME
-				}
-			},
-			hint = { enable = true },
-			maxPreload = 100000,
-			preloadFileSize = 10000,
-		}
-	}
-}
-
-lsp.clangd.setup {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-
-	cmd = {
-		"clangd",
-		"--all-scopes-completion",
-		"--background-index",
-		"--clang-tidy",
-		"--query-driver=/usr/bin/g++",
-	},
-	single_file_support = true,
-	filetypes = { "c", "cc", "cpp", "h", "objc", "objcpp" },
-}
-
-
-lsp.cmake.setup {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-
-	cmd = { "cmake-language-server" },
-	filetypes = { "cmake" },
-	init_options = {
-		buildDirectory = "build",
-	},
-	single_file_support = true,
-}
-
-lsp.pylsp.setup {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-
-	settings = {
-		pylsp = {
-			plugins = {
-				pylint = {
-					enabled = true,
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = { "vim" },
 				},
-				mypy = {
-					enabled = true,
+				runtime = {
+					version = "LuaJIT"
 				},
-				pycodestyle = {
-					enabled = false,
+				workspace = {
+					checkThirdParty = false,
+					library = {
+						vim.env.VIMRUNTIME
+					}
 				},
-				isort = {
-					enabled = true,
-				},
+				hint = { enable = true },
+				maxPreload = 100000,
+				preloadFileSize = 10000,
 			}
 		}
 	}
-}
 
-lsp.marksman.setup {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-}
+	lsp.clangd.setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities,
 
-lsp.texlab.setup {
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-
-	cmd = { "texlab" },
-	filetypes = { "tex", "plaintex", "bib" },
-	single_file_support = true,
-	settings = {
-		build = {
-			args = { "-pdf", "-output-directory=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
-			executable = "latexmk",
-			forwardSearchAfter = true,
-			onSave = false
+		cmd = {
+			"clangd",
+			"--all-scopes-completion",
+			"--background-index",
+			"--clang-tidy"
 		},
-		auxDirectory = "build",
-		forwardSearch = {
-			args = { "--synctex-forward", "%l:1:%f", "%p" },
-			executable = "zathura",
-		},
+		filetypes = { "c", "cc", "cxx", "cpp", "h", "objc", "objcpp" },
+		single_file_support = true,
 	}
-}
+
+
+	lsp.cmake.setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities,
+
+		cmd = { "cmake-language-server" },
+		filetypes = { "cmake" },
+		init_options = {
+			buildDirectory = "build",
+		},
+		single_file_support = true,
+	}
+
+	lsp.pylsp.setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities,
+
+		settings = {
+			pylsp = {
+				plugins = {
+					pylint = {
+						enabled = true,
+					},
+					mypy = {
+						enabled = true,
+					},
+					pycodestyle = {
+						enabled = false,
+					},
+					isort = {
+						enabled = true,
+					},
+				}
+			}
+		}
+	}
+
+	lsp.marksman.setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities,
+	}
+
+	lsp.texlab.setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities,
+
+		cmd = { "texlab" },
+		filetypes = { "tex", "plaintex", "bib" },
+		single_file_support = true,
+		settings = {
+			build = {
+				args = { "-pdf", "-output-directory=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
+				executable = "latexmk",
+				forwardSearchAfter = true,
+				onSave = false
+			},
+			auxDirectory = "build",
+			forwardSearch = {
+				args = { "--synctex-forward", "%l:1:%f", "%p" },
+				executable = "zathura",
+			},
+		}
+	}
+end
 
 return M

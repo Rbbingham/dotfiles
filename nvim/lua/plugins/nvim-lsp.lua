@@ -8,8 +8,21 @@ return {
 		config = function(_, opts)
 			require("mason").setup(opts)
 
+			-- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/plugins/init.lua
 			vim.api.nvim_create_user_command("MasonInstallAll", function()
-				vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
+				if opts.ensure_installed and #opts.ensure_installed > 0 then
+					vim.cmd "Mason"
+					local mr = require("mason-registry")
+
+					mr.refresh(function()
+						for _, tool in ipairs(opts.ensure_installed) do
+							local p = mr.get_package(tool)
+							if not p:is_installed() then
+								p:install()
+							end
+						end
+					end)
+				end
 			end, {})
 
 			vim.g.mason_binaries_list = opts.ensure_installed
@@ -21,7 +34,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		config = function()
-			require("plugins.config.lspconfig")
+			require("plugins.config.lspconfig").defaults()
 
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 				vim.lsp.handlers.hover, {
@@ -37,36 +50,46 @@ return {
 				}
 			)
 
-			require("which-key").register {
-				-- document existing key chains
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			}
-
-			vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
+			-- vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
 		end,
 	},
 
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		event = "VeryLazy",
-		config = function()
-			vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end, { desc = "Toggle trouble list" })
-			vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end,
-				{ desc = "Toggle workspace diagnostics" })
-			vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end,
-				{ desc = "Toggle document diagnostics" })
-			vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end,
-				{ desc = "Toggle quickfix" })
-			vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end,
-				{ desc = "Toggle location list" })
-			vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end,
-				{ desc = "Toggle LSP references" })
-		end
-	}
+		opts = {},
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>tx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>tX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>ts",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>tl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>tL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>tQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
+	},
 }

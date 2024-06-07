@@ -28,10 +28,9 @@ return {
 		event = "VeryLazy",
 		branch = "0.1.x",
 		dependencies = {
-			{ "nvim-lua/plenary.nvim", lazy = true },
-			-- Fuzzy Finder Algorithm which requires local dependencies to be built.
-			-- Only load if `make` is available. Make sure you have the system
-			-- requirements installed.
+			{
+				"nvim-lua/plenary.nvim", lazy = true
+			},
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				lazy = true,
@@ -78,5 +77,19 @@ return {
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
+		opts = {},
+		config = function()
+			require("which-key").register {
+				-- document existing key chains
+				["<leader>b"] = { name = "[B]uffers", _ = "which_key_ignore" },
+				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
+				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
+				["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
+				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
+				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
+				["<leader>t"] = { name = "[T]rouble", _ = "which_key_ignore" },
+				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+			}
+		end,
 	},
 }
