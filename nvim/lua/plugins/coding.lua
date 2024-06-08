@@ -7,7 +7,8 @@ return {
 			{
 				-- snippet plugin
 				"L3MON4D3/LuaSnip",
-				dependencies = "rafamadriz/friendly-snippets",
+				build = "make install_jsregexp",
+				dependencies = { "rafamadriz/friendly-snippets" },
 				opts = { history = true, updateevents = "TextChanged,TextChangedI", enable_autosnippets = true },
 				config = function(_, opts)
 					require("plugins.config.others").luasnip(opts)
