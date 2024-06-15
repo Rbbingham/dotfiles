@@ -10,16 +10,15 @@ return {
 	},
 
 	{
-		"nvim-tree/nvim-tree.lua",
-		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+		"stevearc/oil.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = function()
-			return require("plugins.config.nvimtree")
+			return require("plugins.config.oilnvim")
 		end,
-		config = function(_, opts)
-			require("nvim-tree").setup(opts)
+		config = function(_)
+			require("oil").setup()
 		end,
 	},
 
