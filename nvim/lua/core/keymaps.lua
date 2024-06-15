@@ -37,6 +37,7 @@ map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<Leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
 map("n", "<Leader>bs", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<Leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
 
 -- Clear search with <esc>
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Escape and clear hlsearch" })
@@ -54,9 +55,8 @@ map("v", "<S-TAB>", "<gv")
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 
--- Nvim-tree toggle and focus
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle Nvimtree" })
-map("n", "<Leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Focus Nvimtree" })
+-- Oil keymap
+map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
 -- Toggle spellchecking
 map("n", "<F7>", ":setlocal spell!<CR>", { desc = "Toggle spell-checking" })
