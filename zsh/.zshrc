@@ -139,7 +139,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="~/.local/bin:$PATH"
+export EDITOR='nvim'
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux/:$PATH"
 export MANPATH="/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH" 
@@ -164,7 +165,6 @@ alias tree='eza --tree'
 # Set EDITOR environment variable
 alias vi="nvim"
 alias vim="nvim"
-EDITOR=/usr/local/bin/nvim
 
 # Autoupdate
 alias update="sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade && sudo apt-get autoclean"
@@ -176,6 +176,4 @@ alias icat="kitten icat"
 # Make Tab and ShiftTab cycle completions on the command line
 # bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source <(fzf --zsh)
