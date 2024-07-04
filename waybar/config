@@ -1,0 +1,160 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 20,
+	"margin-top": 0,
+	"margin-left": 10,
+	"margin-right": 10,
+	"spacing": 0,
+
+	// Choose the order of the modules
+	"modules-left": [
+		"custom/Arch",
+		"sway/workspaces",
+		"sway/mode"
+	],
+	"modules-center": [
+		"sway/window"
+	],
+	"modules-right": [
+		"pulseaudio",
+		"network",
+		"cpu",
+		"memory",
+		"battery",
+		"clock"
+	],
+
+	"custom/Arch": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"sway/workspaces": {
+	"on-click": "activate",
+	"format": "{icon}",
+	"format-icons": {
+		"default": "",
+		"1": "1",
+		"2": "2",
+		"3": "3",
+		"4": "4",
+		"5": "5",
+		"6": "6",
+		"7": "7",
+		"8": "8",
+		"9": "9",
+		"active": "󱓻",
+		"urgent": "󱓻"
+	},
+	"persistent_workspaces": {
+		"1": [],
+		"2": [],
+		"3": [],
+		"4": [],
+		"5": []
+	}
+	},
+
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>"
+	},
+
+	"sway/window": {
+		"format": "{title}",
+		"max-length": 50
+	},
+
+	"tray": {
+		"spacing": 10
+	},
+
+	"clock": {
+		"tooltip-format": "<tt>{calendar}</tt>",
+		"format-alt": "{:%Y-%m-%d}",
+    "format": "{:%I:%M %p}"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"format": "{usage}% ",
+		"max-lenght": 10
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": "{}% ",
+		"max-lenght": 10
+	},
+
+	"battery": {
+		"interval": 5,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-icons": {
+			"charging": [
+				"󰢜",
+				"󰂆",
+				"󰂇",
+				"󰂈",
+				"󰢝",
+				"󰂉",
+				"󰢞",
+				"󰂊",
+				"󰂋",
+				"󰂅"
+			],
+			"default": [
+				"󰁺",
+				"󰁻",
+				"󰁼",
+				"󰁽",
+				"󰁾",
+				"󰁿",
+				"󰂀",
+				"󰂁",
+				"󰂂",
+				"󰁹"
+			]
+		},
+		"format": "{capacity}% {icon}",
+	},
+
+	"network": {
+		"max-length": 50,
+		"interval": 5,
+		"format-wifi": "{essid} {icon}",
+		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+		"format-disconnected": "Disconnected ⚠",
+		"format-icons": [
+			"󰤯 ",
+			"󰤟 ",
+			"󰤢 ",
+			"󰤥 ",
+			"󰤨 "
+		],
+		"nospacing": 1,
+		"tooltip-format-disconnected": "Disconnected",
+		"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+		"tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}"
+	},
+
+	"pulseaudio": {
+		//"scroll-step": 1,
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% {icon}",
+    "nospacing": 1,
+		"format-muted": "󰝟 ",
+		"format-icons": {
+			"headphone": " ",
+			"default": [
+				"󰕿 ",
+				"󰖀 ",
+				"󰕾 "
+			]
+		},
+		"on-click": "pavucontrol"
+	},
+}
