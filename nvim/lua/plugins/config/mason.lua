@@ -1,7 +1,7 @@
 local options = {
 	ensure_installed = { "lua-language-server", "clangd", "cmake-language-server", "python-lsp-server", "marksman", "texlab" },
 
-	PATH = "skip",
+	PATH = "prepend",
 
 	ui = {
 		icons = {
