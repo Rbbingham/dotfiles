@@ -56,6 +56,11 @@ M.capabilities.textDocument.completion.completionItem = {
 }
 
 M.defaults = function()
+	lsp.bashls.setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities,
+	}
+
 	lsp.lua_ls.setup {
 		on_attach = M.on_attach,
 		capabilities = M.capabilities,
