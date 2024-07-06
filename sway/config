@@ -8,7 +8,7 @@ set {
 	$right l
 	$left h
 
-	$menu "rofi -combi-modi drun,ssh,run -show combi -show-icons"
+	$menu rofi -show combi
 	$term /home/robert/.local/bin/kitty
 	$browser firefox
 	$private-browser firefox --private-window
@@ -55,7 +55,7 @@ input {
 bindsym {
 	$mod+Return exec $term
 	$mod+q kill
-	$mod+Shift+Return exec $menu
+	$mod+Shift+Return exec --no-startup-id $menu
 	$mod+b exec $browser
 	$mod+Shift+b exec $private-browser
 	$mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
