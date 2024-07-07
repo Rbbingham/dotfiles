@@ -59,6 +59,7 @@ M.defaults = function()
 	lsp.bashls.setup {
 		on_attach = M.on_attach,
 		capabilities = M.capabilities,
+		filetypes = { "sh", "zsh" },
 	}
 
 	lsp.lua_ls.setup {
