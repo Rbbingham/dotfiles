@@ -61,5 +61,8 @@ map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 -- Toggle spellchecking
 map("n", "<F7>", ":setlocal spell!<CR>", { desc = "Toggle spell-checking" })
 
+-- Exact substitution
+map("n", "<F5>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- Don't copy the replaced text after pasting in visual mode
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text", silent = true })
