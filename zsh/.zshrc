@@ -37,6 +37,8 @@ _comp_options+=(globdots)
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -60,10 +62,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 7
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -165,9 +167,6 @@ alias tree='eza --tree'
 # Set EDITOR environment variable
 alias vi="nvim"
 alias vim="nvim"
-
-# Autoupdate
-alias update="sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade && sudo apt-get autoclean"
 
 # Alias kitty's image display command
 alias icat="kitten icat"
