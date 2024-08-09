@@ -10,10 +10,12 @@ local options = {
 		"json",
 		"latex",
 		"lua",
+		"luadoc",
 		"make",
 		"markdown",
 		"markdown_inline",
 		"python",
+		"printf",
 		"regex",
 		"rust",
 		"sql",
@@ -25,7 +27,7 @@ local options = {
 		enable = true,
 		use_languagetree = true,
 	},
-	indent = { enable = false },
+	indent = { enable = true },
 	incremental_selection = {
 		enable = true,
 		keymaps = {
