@@ -1,0 +1,25 @@
+[core]
+	editor = nvim
+	pager = less -R
+[credential]
+	helper = cache
+[init]
+	defaultBranch = main
+[diff]
+	algorithm = histogram
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd L\"
+[merge]
+	tool = nvimerge
+	prompt = false
+[mergetool "nvimerge"]
+	cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J' -c 'set diffopt&' -c 'set diffopt+=algorithm:histogram'
+	keepBackup = false
+[color]
+	pager = yes
+[alias]
+	log-graph = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	log-graph-all = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	diff-all = "!f() { for name in $(git diff --name-only $1); do git difftool -y $1 $name; done }; f"
+	diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
