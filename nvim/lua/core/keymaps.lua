@@ -55,9 +55,6 @@ map("v", "<S-TAB>", "<gv")
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 
--- Oil keymap
-map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
-
 -- Toggle spellchecking
 map("n", "<F7>", ":setlocal spell!<CR>", { desc = "Toggle spell-checking" })
 
@@ -66,3 +63,41 @@ map("n", "<F5>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Don't copy the replaced text after pasting in visual mode
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text", silent = true })
+
+--------------------------------- Plugins Keymaps ----------------------------------
+-- Oil
+map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
+
+-- General mappings
+map("n", "<leader><space>", "<cmd>Telescope buffers<CR>", { desc = "[ ] Find existing buffers" })
+map("n", "<leader>?", "<cmd>Telescope oldfiles<CR>", { desc = "[?] Find recently opened files" })
+map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_finder<CR>", { desc = "[/] Fuzzily search in current buffer" })
+
+-- Search mappings
+map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
+map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
+map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [R]esume" })
+map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch current [W]ord" })
+map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
+map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
+
+-- Git mappings
+map("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "Search [G]it [F]iles" })
+map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Search [G]it [B]ranches" })
+map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview [G]it [H]unk" })
+map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Preview [G]it [S]tage" })
+map("v", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Preview [G]it [S]tage" })
+map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Preview [G]it [R]eset" })
+map("v", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Preview [G]it [R]eset" })
+map("n", "<F9>", "")
+
+-- Telekasten keymaps
+map("i", "[[", "<cmd>Telekasten insert_link<CR>")
+map("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
+map("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
+map("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
+map("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
+map("n", "<leader>zz", "<cmd>Telekasten follow_link<CR>")
+map("n", "<leader>zd", "<cmd>Telekasten goto_today<CR>")
+map("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
+map("n", "<leader>z", "<cmd>Telekasten panel<CR>")
