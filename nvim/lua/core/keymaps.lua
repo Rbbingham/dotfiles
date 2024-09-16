@@ -51,6 +51,9 @@ map("n", "<S-TAB>", "<<")
 map("v", "<TAB>", ">gv")
 map("v", "<S-TAB>", "<gv")
 
+-- Keep the jumplist binding
+map("n", "<C-I>", "<C-I>")
+
 -- Next and prev centered
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
