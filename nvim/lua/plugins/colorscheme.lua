@@ -35,7 +35,8 @@ return {
 							information = { "italic" },
 							ok = { "italic" },
 						},
-						underlines = { errors = { "underline" },
+						underlines = {
+							errors = { "underline" },
 							hints = { "underline" },
 							warnings = { "underline" },
 							information = { "underline" },
