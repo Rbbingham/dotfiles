@@ -8,7 +8,6 @@ local options = {
 		"doxygen",
 		"diff",
 		"json",
-		"latex",
 		"lua",
 		"luadoc",
 		"make",
@@ -20,6 +19,9 @@ local options = {
 		"rust",
 		"sql",
 		"vimdoc",
+	},
+	ignore_install = {
+		"latex"
 	},
 	sync_install = false,
 	auto_install = false,
