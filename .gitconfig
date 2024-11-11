@@ -5,6 +5,12 @@
 	helper = cache
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
 [diff]
 	algorithm = histogram
 	tool = nvimdiff
