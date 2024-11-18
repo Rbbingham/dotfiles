@@ -9,7 +9,7 @@ set {
 	$left h
 
 	$menu rofi -show combi
-	$term /home/robert/.local/bin/kitty
+	$term kitty
 	$browser firefox
 	$private-browser firefox --private-window
 }
