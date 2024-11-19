@@ -73,7 +73,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $ZDOTDIR/.p10k.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 ###############################################################################
 #                                   Aliases                                   #
