@@ -1,6 +1,5 @@
 local options = {
 	ensure_installed = {
-		"bash-language-server",
 		"lua-language-server",
 		"clangd",
 		"cmake-language-server",
