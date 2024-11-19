@@ -77,13 +77,13 @@
 	"cpu": {
 		"interval": 5,
 		"format": "{usage}% ",
-		"max-lenght": 10
+		"max-length": 10
 	},
 
 	"memory": {
 		"interval": 5,
 		"format": "{}% ",
-		"max-lenght": 10
+		"max-length": 10
 	},
 
 	"battery": {
