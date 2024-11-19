@@ -17,8 +17,8 @@ return {
 		opts = function()
 			return require("plugins.config.oilnvim")
 		end,
-		config = function(_)
-			require("oil").setup()
+		config = function(_, opts)
+			require("oil").setup(opts)
 		end,
 	},
 

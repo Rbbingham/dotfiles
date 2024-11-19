@@ -3,7 +3,6 @@ local opts = {
 	delete_to_trash = true,
 	columns = {
 		"icon",
-		"permissions",
 	},
 	skip_confirm_for_simple_edits = true,
 	view_options = {
