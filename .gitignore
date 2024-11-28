@@ -2,3 +2,4 @@ lazy-lock.json
 coc-settings.json
 .luarc.json
 .zcompdump*
+.oh-my-zsh/
