@@ -95,7 +95,7 @@ map("v", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Preview [G]it [
 map("n", "<F9>", "")
 
 -- telekasten keymaps
-map("i", "[[", "<cmd>Telekasten insert_link<CR>")
+map("n", "<leader>zi", "<cmd>Telekasten insert_link<CR>")
 map("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
 map("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
 map("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
