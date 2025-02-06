@@ -1,38 +1,42 @@
 #!/usr/bin/env zsh
 
-if [[ ! -d "$ZDOTDIR/.oh-my-zsh" ]]; then
-	git clone -q --depth=1 https://github.com/ohmyzsh/ohmyzsh.git $ZDOTDIR/.oh-my-zsh
+set -x
+
+zdotdir="${ZDOTDIR:?ZSH config directory unset}"
+
+if [[ ! -d "$zdotdir/.oh-my-zsh" ]]; then
+	git clone -q --depth=1 https://github.com/ohmyzsh/ohmyzsh.git $zdotdir/.oh-my-zsh
 else
-	cd $ZDOTDIR/.oh-my-zsh
+	cd $zdotdir/.oh-my-zsh
 	git pull origin master
 fi
 
-if [[ ! -d "$ZDOTDIR/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
-	git clone -q --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZDOTDIR/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+if [[ ! -d "$zdotdir/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]]; then
+	git clone -q --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $zdotdir/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 else
-	cd $ZDOTDIR/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	cd $zdotdir/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	git pull origin master
 fi
 
-if [[ ! -d "$ZDOTDIR/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
-	git clone -q --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $ZDOTDIR/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+if [[ ! -d "$zdotdir/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]]; then
+	git clone -q --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git $zdotdir/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 else
-	cd $ZDOTDIR/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	cd $zdotdir/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	git pull origin master
 fi
 
-if [[ ! -d "$ZDOTDIR/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
-	git clone -q --depth=1 https://github.com/romkatv/powerlevel10k.git $ZDOTDIR/.oh-my-zsh/custom/themes/powerlevel10k
+if [[ ! -d "$zdotdir/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
+	git clone -q --depth=1 https://github.com/romkatv/powerlevel10k.git $zdotdir/.oh-my-zsh/custom/themes/powerlevel10k
 else
-	cd $ZDOTDIR/.oh-my-zsh/custom/themes/powerlevel10k
+	cd $zdotdir/.oh-my-zsh/custom/themes/powerlevel10k
 	git pull origin master
 fi
 
 () {
 	local f
-	for f in $ZDOTDIR/.oh-my-zsh/{oh-my-zsh.sh,**/*.zsh}; do
+	for f in $zdotdir/.oh-my-zsh/{oh-my-zsh.sh,**/*.zsh}; do
 		zcompile -R -- "$f".zwc "$f"
 	done
 }
 
-make -s -C $ZDOTDIR/.oh-my-zsh/custom/themes/powerlevel10k pkg
+make -s -C $zdotdir/.oh-my-zsh/custom/themes/powerlevel10k pkg
