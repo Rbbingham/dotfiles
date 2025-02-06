@@ -5,9 +5,8 @@ local options = {
 		"cmake-language-server",
 		"python-lsp-server",
 		"marksman",
-		"texlab"
+		"texlab",
 	},
-
 
 	PATH = "prepend",
 

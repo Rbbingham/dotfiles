@@ -21,7 +21,7 @@ local options = {
 		"vimdoc",
 	},
 	ignore_install = {
-		"latex"
+		"latex",
 	},
 	sync_install = false,
 	auto_install = false,

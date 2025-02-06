@@ -11,7 +11,7 @@ return {
 			-- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/plugins/init.lua
 			vim.api.nvim_create_user_command("MasonInstallAll", function()
 				if opts.ensure_installed and #opts.ensure_installed > 0 then
-					vim.cmd "Mason"
+					vim.cmd("Mason")
 					local mr = require("mason-registry")
 
 					mr.refresh(function()
@@ -36,19 +36,15 @@ return {
 		config = function()
 			require("plugins.config.lspconfig").defaults()
 
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-				vim.lsp.handlers.hover, {
-					-- Use a sharp border with `FloatBorder` highlights
-					border = "single",
-				}
-			)
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				-- Use a sharp border with `FloatBorder` highlights
+				border = "single",
+			})
 
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-				vim.lsp.handlers.signature_help, {
-					-- Use a sharp border with `FloatBorder` highlights
-					border = "single"
-				}
-			)
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+				-- Use a sharp border with `FloatBorder` highlights
+				border = "single",
+			})
 
 			-- vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
 		end,

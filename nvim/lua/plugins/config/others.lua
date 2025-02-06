@@ -61,7 +61,6 @@ M.telekasten = {
 	weeklies = vim.fn.expand("~/Documents/Notes/"),
 	templates = vim.fn.expand("~/.config/nvim/templates/"),
 
-
 	template_new_note = vim.fn.expand("~/.config/nvim/templates/notes/notes.md"),
 	template_new_daily = vim.fn.expand("~/.config/nvim/templates/dailies/dailies.md"),
 	template_new_weekly = vim.fn.expand("~/.config/nvim/templates/weeklies/weeklies.md"),

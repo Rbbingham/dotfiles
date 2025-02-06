@@ -74,7 +74,12 @@ map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 -- general mappings
 map("n", "<leader><space>", "<cmd>Telescope buffers<CR>", { desc = "[ ] Find existing buffers" })
 map("n", "<leader>?", "<cmd>Telescope oldfiles<CR>", { desc = "[?] Find recently opened files" })
-map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_finder<CR>", { desc = "[/] Fuzzily search in current buffer" })
+map(
+	"n",
+	"<leader>/",
+	"<cmd>Telescope current_buffer_fuzzy_finder<CR>",
+	{ desc = "[/] Fuzzily search in current buffer" }
+)
 
 -- search mappings
 map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })

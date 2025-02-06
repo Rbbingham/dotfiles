@@ -20,7 +20,7 @@ return {
 					statusline = 1000,
 					tabline = 1000,
 					winbar = 1000,
-				}
+				},
 			},
 			sections = {
 				lualine_a = { "mode" },
@@ -30,12 +30,12 @@ return {
 				lualine_y = {
 					function()
 						return " " .. os.date("%R")
-					end
+					end,
 				},
 				lualine_z = {
 					{ "location", padding = { left = 0, right = 1 } },
 					{ "progress", seperator = " ", padding = { left = 1, right = 1 } },
-				}
+				},
 			},
 			inactive_sections = {
 				lualine_a = {},
@@ -43,7 +43,7 @@ return {
 				lualine_c = { "filename" },
 				lualine_x = { "location" },
 				lualine_y = {},
-				lualine_z = {}
+				lualine_z = {},
 			},
 			tabline = {
 				lualine_a = { "buffers" },
@@ -51,12 +51,12 @@ return {
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = { "tabs" }
+				lualine_z = { "tabs" },
 			},
 			winbar = {},
 			inactive_winbar = {},
-			extensions = { "nvim-tree" }
-		}
+			extensions = { "nvim-tree" },
+		},
 	},
 
 	{

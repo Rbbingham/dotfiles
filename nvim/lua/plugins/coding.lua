@@ -9,7 +9,11 @@ return {
 				"L3MON4D3/LuaSnip",
 				build = "make install_jsregexp",
 				dependencies = { "rafamadriz/friendly-snippets" },
-				opts = { history = true, updateevents = "TextChanged,TextChangedI", enable_autosnippets = true },
+				opts = {
+					history = true,
+					updateevents = "TextChanged,TextChangedI",
+					enable_autosnippets = true,
+				},
 				config = function(_, opts)
 					require("plugins.config.others").luasnip(opts)
 				end,
@@ -66,19 +70,21 @@ return {
 		end,
 		config = function(_, opts)
 			require("telekasten").setup(opts)
-		end
+		end,
 	},
 
 	{
 		"renerocksai/calendar-vim",
-		event = "VeryLazy"
+		event = "VeryLazy",
 	},
 
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
-		build = function() vim.fn["mkdp#util#install"]() end,
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	},
 
 	-- SQL
@@ -91,7 +97,7 @@ return {
 		ft = { "sql", "mysql", "plsql" },
 		init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
-		end
+		end,
 	},
 
 	{
@@ -110,12 +116,12 @@ return {
 			vim.g.tex_conceal = "abdgms"
 			vim.g.vimtex_syntax_enabled = 1
 			vim.g.vimtex_compiler_method = "latexmk"
-			vim.g.vimtex_log_ignore = ({
+			vim.g.vimtex_log_ignore = {
 				"Underfull",
 				"Overfull",
 				"specifier changed to",
 				"Token not allowed in a PDF string",
-			})
+			}
 			vim.g.vimtex_compiler_latexmk = {
 				aux_dir = "./build",
 				out_dir = ".",
@@ -127,6 +133,6 @@ return {
 					"-interaction=nonstopmode",
 				},
 			}
-		end
+		end,
 	},
 }

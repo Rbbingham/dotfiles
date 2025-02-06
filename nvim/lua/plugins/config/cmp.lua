@@ -66,7 +66,7 @@ local options = {
 			},
 			documentation = {
 				border = "single",
-			}
+			},
 		},
 
 		snippet = {
@@ -75,7 +75,7 @@ local options = {
 			end,
 		},
 
-		mapping = cmp.mapping.preset.insert {
+		mapping = cmp.mapping.preset.insert({
 			["<C-j>"] = cmp.mapping.abort(),
 			["<C-k>"] = cmp.mapping.abort(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
@@ -106,23 +106,23 @@ local options = {
 					fallback()
 				end
 			end, { "i", "s" }),
-		},
+		}),
 
 		-- TODO: setup sources for specific buffers
 		sources = {
 			{ name = "nvim_lsp", priority = 1000 },
-			{ name = "luasnip",  priority = 750 },
-			{ name = "path",     priority = 500 },
-			{ name = "buffer",   priority = 250 },
+			{ name = "luasnip", priority = 750 },
+			{ name = "path", priority = 500 },
+			{ name = "buffer", priority = 250 },
 		},
 	}),
 
 	cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
 		sources = {
-			{ name = "luasnip",               priority = 1000 },
+			{ name = "luasnip", priority = 1000 },
 			{ name = "vim-dadbod-completion", priority = 750 },
-		}
-	})
+		},
+	}),
 }
 
 return options

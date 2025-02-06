@@ -57,9 +57,9 @@ return {
 					lsp_trouble = true,
 					ufo = false,
 					which_key = true,
-				}
+				},
 			})
 			vim.cmd.colorscheme("catppuccin-mocha")
-		end
-	}
+		end,
+	},
 }

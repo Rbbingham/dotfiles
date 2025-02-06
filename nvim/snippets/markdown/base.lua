@@ -11,9 +11,9 @@ return {
 				table.insert(nodes, t(" "))
 				hlines = hlines .. "|---"
 			end
-			table.insert(nodes, t { "|", "" })
+			table.insert(nodes, t({ "|", "" }))
 			hlines = hlines .. "|"
-			table.insert(nodes, t { hlines, "" })
+			table.insert(nodes, t({ hlines, "" }))
 			for _ = 1, snip.captures[1] do
 				for _ = 1, snip.captures[2] do
 					i_counter = i_counter + 1
@@ -22,14 +22,16 @@ return {
 					print(i_counter)
 					table.insert(nodes, t(" "))
 				end
-				table.insert(nodes, t { "|", "" })
+				table.insert(nodes, t({ "|", "" }))
 			end
 			return sn(nil, nodes)
 		end),
 	}),
 
 	s({ name = "Underline", trig = "underline" }, {
-		t("<u>"), i(1), t("</u> "),
+		t("<u>"),
+		i(1),
+		t("</u> "),
 	}),
 
 	-- s({ name = "Inline math", trig = "mm" }, {

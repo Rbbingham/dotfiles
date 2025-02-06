@@ -28,14 +28,15 @@ return {
 		branch = "0.1.x",
 		dependencies = {
 			{
-				"nvim-lua/plenary.nvim", lazy = true
+				"nvim-lua/plenary.nvim",
+				lazy = true,
 			},
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				lazy = true,
 				build = "make",
 				cond = function()
-					return vim.fn.executable "make" == 1
+					return vim.fn.executable("make") == 1
 				end,
 			},
 		},
@@ -68,7 +69,7 @@ return {
 				{ "<leader>s", name = "[S]earch" },
 				{ "<leader>t", name = "[T]rouble" },
 				{ "<leader>w", name = "[w]orkspace" },
-			}
+			},
 		},
 	},
 }
