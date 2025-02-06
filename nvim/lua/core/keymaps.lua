@@ -62,7 +62,7 @@ map("n", "N", "Nzz")
 map("n", "<F7>", ":setlocal spell!<CR>", { desc = "Toggle spell-checking" })
 
 -- exact substitution
-map("n", "<F5>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<F5>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Exact substitution" })
 
 -- don't copy the replaced text after pasting in visual mode
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text", silent = true })
@@ -100,12 +100,12 @@ map("v", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Preview [G]it [
 map("n", "<F9>", "")
 
 -- telekasten keymaps
-map("n", "<leader>zi", "<cmd>Telekasten insert_link<CR>")
-map("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
-map("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>")
-map("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>")
-map("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
-map("n", "<leader>zz", "<cmd>Telekasten follow_link<CR>")
-map("n", "<leader>zd", "<cmd>Telekasten goto_today<CR>")
-map("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>")
-map("n", "<leader>z", "<cmd>Telekasten panel<CR>")
+map("n", "<leader>zl", "<cmd>Telekasten insert_link<CR>", { desc = "[Z]ettelkasten insert [L]ink" })
+map("n", "<leader>zi", "<cmd>Telekasten insert_img_link<CR>", { desc = "[Z]ettelkasten insert [I]mg link" })
+map("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>", { desc = "[Z]ettelkasten show [B]acklinks" })
+map("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>", { desc = "[Z]ettelkasten show [C]alender" })
+map("n", "<leader>zn", "<cmd>Telekasten new_note<CR>", { desc = "[Z]ettelkasten new [N]ote" })
+map("n", "<leader>zg", "<cmd>Telekasten follow_link<CR>", { desc = "[Z]ettelkasten [G]oto note" })
+map("n", "<leader>zt", "<cmd>Telekasten goto_today<CR>", { desc = "[Z]ettelkasten goto [T]oday" })
+map("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>", { desc = "[Z]ettelkasten [F]ind note" })
+map("n", "<leader>z", "<cmd>Telekasten panel<CR>", { desc = "[Z]ettelkasten" })
