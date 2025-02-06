@@ -25,19 +25,13 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		event = "VeryLazy",
-		branch = "0.1.x",
 		dependencies = {
 			{
 				"nvim-lua/plenary.nvim",
-				lazy = true,
 			},
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
-				lazy = true,
-				build = "make",
-				cond = function()
-					return vim.fn.executable("make") == 1
-				end,
+				build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
 			},
 		},
 		config = function()
@@ -51,7 +45,8 @@ return {
 					},
 				},
 			})
-			pcall(require("telescope").load_extension("fzf"))
+
+			require("telescope").load_extension("fzf")
 		end,
 	},
 
