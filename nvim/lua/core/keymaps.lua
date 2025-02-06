@@ -88,16 +88,22 @@ map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [R]esume"
 map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch current [W]ord" })
 map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
 map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
+map(
+	"n",
+	"<leader>sa",
+	"<cmd>Telescope find_files hidden=true follow=true no_ignore=true<CR>",
+	{ desc = "[S]earch [A]ll files" }
+)
 
 -- git mappings
 map("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "Search [G]it [F]iles" })
 map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Search [G]it [B]ranches" })
+map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Search [G]it [C]ommits" })
 map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview [G]it [H]unk" })
-map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Preview [G]it [S]tage" })
-map("v", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Preview [G]it [S]tage" })
-map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Preview [G]it [R]eset" })
-map("v", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Preview [G]it [R]eset" })
-map("n", "<F9>", "")
+map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "[G]it [S]tage hunk" })
+map("v", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "[G]it [S]tage hunk" })
+map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "[G]it [R]eset hunk" })
+map("v", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "[G]it [R]eset hunk" })
 
 -- telekasten keymaps
 map("n", "<leader>zl", "<cmd>Telekasten insert_link<CR>", { desc = "[Z]ettelkasten insert [L]ink" })
