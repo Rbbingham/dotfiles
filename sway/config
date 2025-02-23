@@ -36,9 +36,9 @@ bar {
 output * bg ~/.config/sway/wallpaper/beautiful-mountains-landscape.jpg fill
 
 exec swayidle -w \
-	timeout 120 'swaylock -C ~/.config/dotfiles/sway/swaylock -f --grace 10 --fade-in 4 --screenshot' \
+	timeout 120 'swaylock -f --grace 10 --fade-in 4 --screenshot' \
 	timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-	before-sleep 'swaylock -C ~/.config/dotfiles/sway/swaylock'
+	before-sleep 'swaylock'
 
 input {
 	type:touchpad {
