@@ -15,12 +15,17 @@ set {
 }
 
 for_window [class="discord"] move container to workspace 9
-default_border none
-default_floating_border none
-gaps outer 5
-gaps inner 5
-titlebar_padding 1
-titlebar_border_thickness 0
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, \
+	resize set 900 350, \
+	move position 100 ppt 0 ppt, \
+	move left 900
+
+default_border pixel 2
+default_floating_border pixel 2
+gaps outer 2
+gaps inner 2
+titlebar_padding 2
+titlebar_border_thickness 2
 
 floating_modifier $mod normal
 
