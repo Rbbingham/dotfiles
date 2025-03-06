@@ -74,11 +74,6 @@ return {
 	},
 
 	{
-		"renerocksai/calendar-vim",
-		event = "VeryLazy",
-	},
-
-	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		ft = { "markdown" },
