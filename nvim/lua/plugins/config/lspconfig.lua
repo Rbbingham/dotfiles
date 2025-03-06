@@ -17,11 +17,11 @@ M.on_attach = function(_, bufnr)
 	map("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, opts("[D]ocument [S]ymbols"))
 	map("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, opts("[W]orkspace [S]ymbols"))
 
-	-- See `:help K` for why this keymap
+	-- see `:help K` for why this keymap
 	map("n", "K", vim.lsp.buf.hover, opts("Hover Documentation"))
 	map("n", "<leader>k", vim.lsp.buf.signature_help, opts("Signature Documentation"))
 
-	-- Lesser used LSP functionality
+	-- lesser used LSP functionality
 	map("n", "gD", vim.lsp.buf.declaration, opts("[G]oto [D]eclaration"))
 	map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts("[W]orkspace [A]dd Folder"))
 	map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts("[W]orkspace [R]emove Folder"))
@@ -29,10 +29,22 @@ M.on_attach = function(_, bufnr)
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, opts("[W]orkspace [L]ist Folders"))
 
-	-- Create a command `:Format` local to the LSP buffer
-	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-		vim.lsp.buf.format()
-	end, { desc = "Format current buffer with LSP" })
+	-- create a command `:Format` local to the LSP buffer
+	vim.api.nvim_buf_create_user_command(bufnr, "Format", function(options, _)
+		if options.count == -1 then
+			vim.lsp.buf.format({
+				async = true,
+			})
+		else
+			vim.lsp.buf.format({
+				async = true,
+				range = {
+					["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+					["end"] = vim.api.nvim_buf_get_mark(0, ">")
+				}
+			})
+		end
+	end, { desc = "Format current buffer with LSP", range = true })
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
