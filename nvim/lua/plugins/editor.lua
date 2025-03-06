@@ -63,7 +63,7 @@ return {
 				{ "<leader>r", name = "[R]ename" },
 				{ "<leader>s", name = "[S]earch" },
 				{ "<leader>t", name = "[T]rouble" },
-				{ "<leader>w", name = "[w]orkspace" },
+				{ "<leader>w", name = "[W]orkspace" },
 			},
 		},
 	},
