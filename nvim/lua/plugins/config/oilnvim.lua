@@ -1,4 +1,4 @@
-local opts = {
+local M = {
 	default_file_explorer = true,
 	delete_to_trash = true,
 	columns = {
@@ -17,4 +17,4 @@ local opts = {
 	},
 }
 
-return opts
+return M

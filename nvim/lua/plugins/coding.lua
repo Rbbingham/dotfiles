@@ -1,18 +1,16 @@
 return {
 	{
-		-- Autocompletion
+		-- autocompletion
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
 			{
 				-- snippet plugin
 				"L3MON4D3/LuaSnip",
-				build = "make install_jsregexp",
 				dependencies = { "rafamadriz/friendly-snippets" },
 				opts = {
 					history = true,
 					updateevents = "TextChanged,TextChangedI",
-					enable_autosnippets = true,
 				},
 				config = function(_, opts)
 					require("plugins.config.others").luasnip(opts)

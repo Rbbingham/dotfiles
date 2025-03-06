@@ -20,7 +20,7 @@ return {
 					flash = false,
 					gitsigns = true,
 					indent_blankline = {
-						enabled = false,
+						enabled = true,
 					},
 					mini = {
 						enabled = false,

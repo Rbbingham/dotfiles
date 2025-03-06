@@ -50,7 +50,7 @@ local formatting_style = {
 	fields = { "kind", "abbr", "menu" },
 }
 
-local options = {
+local M = {
 	cmp.setup({
 		completion = {
 			completeopt = "menu,menuone",
@@ -125,4 +125,4 @@ local options = {
 	}),
 }
 
-return options
+return M

@@ -1,4 +1,4 @@
-local options = {
+local M = {
 	ensure_installed = {
 		"lua-language-server",
 		"clangd",
@@ -32,4 +32,4 @@ local options = {
 	max_concurrent_installers = 10,
 }
 
-return options
+return M

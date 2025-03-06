@@ -1,4 +1,4 @@
-local options = {
+local M = {
 	ensure_installed = {
 		"bash",
 		"c",
@@ -85,4 +85,4 @@ local options = {
 	},
 }
 
-return options
+return M
