@@ -99,11 +99,20 @@ map(
 map("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "Search [G]it [F]iles" })
 map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Search [G]it [B]ranches" })
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Search [G]it [C]ommits" })
-map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview [G]it [H]unk" })
+map("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview [G]it [H]unk" })
+
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "[G]it [S]tage hunk" })
-map("v", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "[G]it [S]tage hunk" })
+map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "[G]it [S]tage buffer" })
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "[G]it [R]eset hunk" })
-map("v", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "[G]it [R]eset hunk" })
+map("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "[G]it [R]eset buffer" })
+
+map("v", "<leader>gs", function()
+	require("gitsigns").stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+end, { desc = "[G]it [S]tage hunk" })
+
+map("v", "<leader>gr", function()
+	require("gitsigns").reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+end, { desc = "[G]it [R]eset hunk" })
 
 -- telekasten keymaps
 map("n", "<leader>zl", "<cmd>Telekasten insert_link<CR>", { desc = "[Z]ettelkasten insert [L]ink" })
