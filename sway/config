@@ -20,6 +20,7 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, \
 	move position 100 ppt 0 ppt, \
 	move left 900
 
+smart_borders on
 default_border pixel 2
 default_floating_border pixel 2
 gaps outer 2
@@ -33,7 +34,7 @@ bar {
 	swaybar_command waybar
 }
 
-output * bg ~/.config/sway/wallpaper/beautiful-mountains-landscape.jpg fill
+output * bg ~/.config/sway/wallpaper/wallpaper.jpg fill
 
 exec swayidle -w \
 	timeout 120 'swaylock -f --grace 10 --fade-in 4 --screenshot' \
