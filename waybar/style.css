@@ -160,21 +160,21 @@ tooltip label {
 
 @keyframes blink-warning {
 	70% {
-		color: white;
+		color: @on_surface;
 	}
 	to {
-		color: black;
-		background-color: orange;
+		color: @surface;
+		background-color: @warning;
 	}
 }
 
 @keyframes blink-critical {
 	70% {
-		color: white;
+		color: @on_surface;
 	}
 	to {
-		color: black;
-		background-color: red;
+		color: @surface;
+		background-color: @error;
 	}
 }
 
