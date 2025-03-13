@@ -2,7 +2,7 @@
 	"layer": "top",
 	"position": "top",
 
-	// Choose the order of the modules
+	// choose the order of the modules
 	"modules-left": [
 		"custom/Arch",
 		"sway/workspaces",
@@ -30,7 +30,6 @@
 	},
 
 	"sway/workspaces": {
-		"on-click": "activate",
 		"format": "{icon}",
 		"format-icons": {
 			"default": "",
@@ -51,7 +50,8 @@
 			"3": [],
 			"4": [],
 			"5": []
-		}
+		},
+		"on-click": "activate"
 	},
 
 	"custom/playerctl#backward": {
@@ -123,8 +123,6 @@
 	},
 
 	"network": {
-		"max-length": 50,
-		"interval": 5,
 		"format-wifi": "{essid} {icon}",
 		"format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀",
 		"format-disconnected": "Disconnected 󰤮",
@@ -135,21 +133,18 @@
 			"󰤥 ",
 			"󰤨 "
 		],
+		"interval": 5,
+		"max-length": 50,
 		"nospacing": 1,
 		"tooltip-format-disconnected": "Disconnected",
-		"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-		"tooltip-format-ethernet": "󰈀 {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}"
+		"tooltip-format-ethernet": "󰈀 {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+		"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}"
 	},
 
 	"cpu": {
 		"format": "{usage}% ",
 		"interval": 5,
 		"max-length": 10,
-		// "states": {
-		// 	"high": 75,
-		// 	"middle": 50,
-		// 	"low": 25
-		// },
 		"tooltip": true
 	},
 
@@ -157,19 +152,10 @@
 		"format": "{percentage}% ",
 		"interval": 5,
 		"max-length": 10
-		// "states": {
-		// 	"high": 75,
-		// 	"middle": 50,
-		// 	"low": 25
-		// }
 	},
 
 	"battery": {
-		"interval": 5,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
+		"format": "{capacity}% {icon}",
 		"format-icons": {
 			"charging": [
 				"󰢜",
@@ -196,12 +182,16 @@
 				"󰁹"
 			]
 		},
-		"format": "{capacity}% {icon}"
+		"interval": 5,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		}
 	},
 
 	"clock": {
-		"tooltip-format": "<tt>{calendar}</tt>",
+		"format": "{:%I:%M %p}",
 		"format-alt": "{:%Y-%m-%d}",
-		"format": "{:%I:%M %p}"
+		"tooltip-format": "<tt>{calendar}</tt>"
 	}
 }

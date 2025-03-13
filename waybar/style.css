@@ -1,14 +1,16 @@
-@define-color surface-alpha rgba(16, 20, 23, 0.5);
+@define-color arch-blue #1793d1;
+@define-color charging #abffab;
 @define-color error #ffb4ab;
 @define-color on_hover #17d15b;
-@define-color arch-blue #1793d1;
 @define-color on_surface #dfe3e7;
 @define-color surface #101417;
+@define-color surface-alpha rgba(16, 20, 23, 0.5);
 @define-color surface_high #313539;
+@define-color warning #ffb4ab;
 
 * {
-	border: none;
 	border-radius: 0px;
+	border: none;
 	font-family: Firacode Nerd Font;
 	font-size: 14px;
 	font-weight: bold;
@@ -21,8 +23,8 @@ window#waybar {
 
 tooltip {
 	background: @surface;
-	border: 2px solid @on_surface;
 	border-radius: 12px;
+	border: 2px solid @on_surface;
 }
 
 tooltip label {
@@ -31,33 +33,33 @@ tooltip label {
 }
 
 #custom-Arch {
-	color: @on_surface;
 	background: @surface;
 	border-radius: 0px 30px 30px 0px;
-	padding: 5px 20px 5px 5px;
-	margin-right: 5px;
+	color: @on_surface;
 	font-size: 20px;
+	margin-right: 5px;
+	padding: 5px 20px 5px 5px;
 }
 
 #workspaces {
 	background: @surface;
-	margin: 5px 0px;
-	padding: 5px 14px;
 	border-radius: 24px 10px 24px 10px;
 	color: @on_surface;
+	margin: 5px 0px;
+	padding: 5px 14px;
 }
 
 #workspaces button {
-	padding: 0px 0px;
-	margin: 0px 3px;
+	background: @surface_high;
 	border-radius: 16px;
 	color: transparent;
-	background: @surface_high;
+	margin: 0px 3px;
+	padding: 0px 0px;
 	/* how to apply transitions without the text of inactive
 	 * workspaces from appearing when switching workspaces */
 	transition: min-width 0.3s ease-in-out,
-							background 0.3s ease-in-out,
-							color 0.3s ease-in-out;
+		background 0.3s ease-in-out,
+		color 0.3s ease-in-out;
 }
 
 #workspaces button.focused {
@@ -75,8 +77,8 @@ tooltip label {
 
 #workspaces button:hover {
 	background-color: @on_surface;
-	color: @surface;
 	border-radius: 16px;
+	color: @surface;
 	min-width: 50px;
 	transition: all 0.3s ease-in-out;
 }
@@ -97,10 +99,10 @@ tooltip label {
 }
 
 #custom-playerctl.backward {
-	color: @on_surface;
 	border-radius: 24px 0px 0px 10px;
-	padding-left: 16px;
+	color: @on_surface;
 	margin-left: 5px;
+	padding-left: 16px;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -116,39 +118,39 @@ tooltip label {
 
 #custom-playerlabel {
 	background: @surface;
-	color: @on_surface;
-	padding-right: 20px;
 	border-radius: 0px 10px 24px 0px;
+	color: @on_surface;
 	margin: 5px 0px;
+	padding-right: 20px;
 }
 
 #mode {
 	background: @surface;
-	margin: 5px 5px;
 	border-radius: 24px 10px 24px 10px;
+	font-size: 20px;
+	margin: 5px 5px;
 	padding-left: 16px;
 	padding-right: 20px;
-	font-size: 20px;
 }
 
 #window{
 	background: @surface;
-	padding: 0px 15px;
 	border-radius: 16px;
 	margin: 5px 0px;
+	padding: 0px 15px;
 }
 
 #pulseaudio, #network {
 	border-radius: 10px 24px 10px 24px;
-	padding: 0 20px;
 	margin-left: 7px;
+	padding: 0 20px;
 }
 
 #cpu {
 	border-radius: 10px 0px 0px 24px;
+	margin-left: 7px;
 	padding-left: 16px;
 	padding-right: 7px;
-	margin-left: 7px;
 }
 
 #memory {
@@ -163,9 +165,9 @@ tooltip label {
 }
 
 #clock {
-	color: @on_surface;
 	background: @surface;
 	border-radius: 30px 0px 0px 30px;
-	padding: 5px 5px 5px 20px;
+	color: @on_surface;
 	margin-left: 7px;
+	padding: 5px 5px 5px 20px;
 }
