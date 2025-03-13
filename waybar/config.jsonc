@@ -55,23 +55,29 @@
 	},
 
 	"custom/playerctl#backward": {
+		// any output works
+		"exec": "playerctl -a metadata --format '{\"class\": \"{{status}}\"}' -F",
 		"format": "󰙣 ",
 		"on-click": "playerctl previous",
 		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
 		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+		"return-type": "json",
 		"tooltip": false
 	},
 
 	"custom/playerctl#forward": {
+		// anything output works
+		"exec": "playerctl -a metadata --format '{\"class\": \"{{status}}\"}' -F",
 		"format": "󰙡 ",
 		"on-click": "playerctl next",
 		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
 		"on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
+		"return-type": "json",
 		"tooltip": false
 	},
 
 	"custom/playerctl#play": {
-		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+		"exec": "playerctl -a metadata --format '{\"alt\": \"{{status}}\"}' -F",
 		"format": "{icon}",
 		"format-icons": {
 			"Paused": "<span> </span>",
