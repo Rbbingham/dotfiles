@@ -6,7 +6,7 @@
 @define-color surface #101417;
 @define-color surface-alpha rgba(16, 20, 23, 0.5);
 @define-color surface_high #313539;
-@define-color warning #ffb4ab;
+@define-color warning #ffe3ab;
 
 * {
 	border-radius: 0px;
