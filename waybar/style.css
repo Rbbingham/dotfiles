@@ -158,10 +158,54 @@ tooltip label {
 	padding-right: 8px;
 }
 
+@keyframes blink-warning {
+	70% {
+		color: white;
+	}
+	to {
+		color: black;
+		background-color: orange;
+	}
+}
+
+@keyframes blink-critical {
+	70% {
+		color: white;
+	}
+	to {
+		color: black;
+		background-color: red;
+	}
+}
+
 #battery {
 	border-radius: 0px 24px 10px 0px;
 	padding-left: 8px;
-	padding-right: 16px
+	padding-right: 16px;
+	animation-duration: 3.0s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#battery.charging {
+	color: @charging;
+}
+
+#battery.warning {
+	color: @warning;
+}
+
+#battery.warning.discharging {
+	animation-name: blink-warning;
+}
+
+#battery.critical {
+	color: @error;
+}
+
+#battery.critical.discharging {
+	animation-name: blink-critical;
 }
 
 #clock {
