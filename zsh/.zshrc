@@ -28,6 +28,7 @@ HISTSIZE=$(( 1.2 * SAVEHIST ))
 #                            Environment Variables                            #
 ###############################################################################
 # -U ensures each entry in these is unique (that is, discards duplicates).
+# `man` is better at finding man pages, so don't set MANPATH
 typeset -U PATH path FPATH fpath
 typeset -UT INFOPATH infopath
 
@@ -37,12 +38,6 @@ export VISUAL="nvim"
 path=(
 	$path
 	$HOME/.local/bin
-	/usr/local/texlive/2023/bin/x86_64-linux/
-)
-
-infopath=(
-	$infopath
-	/usr/local/texlive/2023/texmf-dist/doc/info
 )
 
 ###############################################################################
