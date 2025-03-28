@@ -21,6 +21,10 @@ window#waybar {
 	background: @surface-alpha;
 }
 
+window#waybar.empty #window {
+	background: none;
+}
+
 tooltip {
 	background: @surface;
 	border-radius: 12px;
