@@ -1,0 +1,29 @@
+configuration {
+	case-sensitive:      false;
+	disable-history:     false;
+	display-combi:       "Combi";
+	display-drun:        "Apps";
+	display-filebrowser: "Files";
+	display-keys:        "Keys";
+	display-run:         "Run";
+	display-ssh:         "SSH";
+	display-window:      "Windows";
+	display-windowcd:    "Window CD";
+	drun-url-launcher:   "xdg-open";
+	icon-theme:          "Papirus";
+	matching:            "fuzzy";
+	modi:                "window,drun,filebrowser";
+	parse-hosts:         true;
+	show-icons:          true;
+	sidebar-mode:        true;
+	sorting-method:      "fzf";
+	terminal:            "kitty";
+	window-thumbnail:    true;
+
+	filebrowser {
+		directories-first: true;
+		sorting-method:    "name";
+	}
+}
+
+@theme "~/.config/rofi/themes/theme.rasi"
