@@ -56,7 +56,6 @@ return {
 		opts = {
 			preset = "modern",
 			spec = {
-				{ "<leader>b", name = "[B]uffers" },
 				{ "<leader>c", name = "[C]ode" },
 				{ "<leader>d", name = "[D]ocument" },
 				{ "<leader>g", name = "[G]it" },
