@@ -35,9 +35,7 @@ map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<Leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
-map("n", "<Leader>bs", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<Leader>bd", "<cmd>bd<cr>", { desc = "Close buffer" })
+map("n", "<Leader>b", "<cmd>enew<CR>", { desc = "New buffer" })
 
 -- clear search with <esc>
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Escape and clear hlsearch" })
@@ -67,6 +65,10 @@ map("n", "<F5>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc 
 -- don't copy the replaced text after pasting in visual mode
 map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced text", silent = true })
 
+-- add buffer diagnostics to the location/quickfix list.
+map("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "LSP [D]iagnostic [L]oclist" })
+map("n", "<leader>dq", vim.diagnostic.setqflist, { desc = "LSP [D]iagnostic [Q]uicklist" })
+
 --------------------------------- Plugins Keymaps ----------------------------------
 -- oil
 map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
@@ -83,11 +85,11 @@ map(
 
 -- search mappings
 map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
+map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
 map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
+map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
 map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [R]esume" })
 map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch current [W]ord" })
-map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
-map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
 map(
 	"n",
 	"<leader>sa",
@@ -100,7 +102,6 @@ map("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "Search [G]it [F
 map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Search [G]it [B]ranches" })
 map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Search [G]it [C]ommits" })
 map("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview [G]it [H]unk" })
-
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "[G]it [S]tage hunk" })
 map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "[G]it [S]tage buffer" })
 map("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "[G]it [R]eset hunk" })
