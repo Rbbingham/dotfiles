@@ -35,25 +35,12 @@ return {
 		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		config = function()
 			require("plugins.config.lspconfig").defaults()
-
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				-- Use a sharp border with `FloatBorder` highlights
-				border = "single",
-			})
-
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-				-- Use a sharp border with `FloatBorder` highlights
-				border = "single",
-			})
-
-			-- vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
 		end,
 	},
 
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
 		cmd = "Trouble",
 		keys = {
 			{
