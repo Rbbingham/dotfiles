@@ -7,11 +7,7 @@ M.on_attach = function(_, bufnr)
 		return { buffer = bufnr, desc = "LSP " .. desc }
 	end
 
-	map("n", "<leader>rn", vim.lsp.buf.rename, opts("[R]e[n]ame"))
-	map("n", "<leader>cq", vim.lsp.buf.code_action, opts("[C]ode [Q]uixfix"))
-
 	map("n", "gd", require("telescope.builtin").lsp_definitions, opts("[G]oto [D]efinition"))
-	map("n", "gr", require("telescope.builtin").lsp_references, opts("[G]oto [R]eferences"))
 	map("n", "gI", require("telescope.builtin").lsp_implementations, opts("[G]oto [I]mplementation"))
 	map("n", "<leader>D", require("telescope.builtin").lsp_type_definitions, opts("Type [D]efinition"))
 	map("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, opts("[D]ocument [S]ymbols"))
@@ -68,6 +64,21 @@ M.capabilities.textDocument.completion.completionItem = {
 }
 
 M.defaults = function()
+	local severity = vim.diagnostic.severity
+	vim.diagnostic.config({
+		virtual_text = { prefix = "" },
+		signs = {
+			text = {
+				[severity.ERROR] = "󰅙",
+				[severity.WARN] = "",
+				[severity.INFO] = "󰋼",
+				[severity.HINT] = "󰌵"
+			}
+		},
+		underline = true,
+		float = { border = "single" },
+	})
+
 	lsp.lua_ls.setup({
 		on_attach = M.on_attach,
 		capabilities = M.capabilities,
