@@ -43,6 +43,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = augroup("close_with_q"),
 	pattern = {
 		"PlenaryTestPopup",
+		"checkhealth",
+		"git",
+		"gitsigns-blame",
 		"help",
 		"lspinfo",
 		"man",
@@ -51,9 +54,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		"spectre_panel",
 		"startuptime",
 		"tsplayground",
-		"checkhealth",
-		"git",
-		"gitsigns-blame",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
@@ -64,7 +64,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
 	group = augroup("wrap_spell"),
-	pattern = { "text", "plaintext", "gitcommit", "markdown" },
+	pattern = { "text", "plaintex", "gitcommit", "markdown" },
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.spell = true
