@@ -69,6 +69,10 @@ map("x", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Don't copy replaced tex
 map("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "LSP [D]iagnostic [L]oclist" })
 map("n", "<leader>dq", vim.diagnostic.setqflist, { desc = "LSP [D]iagnostic [Q]uicklist" })
 
+-- terminal keybindings
+map("n", "<F6>", ":terminal<CR>", { desc = "Open terminal" })
+map("t", "<esc>", "<C-\\><C-n>", { silent = true })
+
 --------------------------------- Plugins Keymaps ----------------------------------
 -- oil
 map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
