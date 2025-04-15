@@ -1,0 +1,10 @@
+* {
+	blue: #1793d1;
+	green: #abffab;
+	red: #ffb4ab;
+	on-surface: #dfe3e7;
+	surface: #101417;
+	surface-alpha: rgba(16, 20, 23, 0.5);
+	surface-high: #313539;
+	warning: #ffe3ab;
+}
