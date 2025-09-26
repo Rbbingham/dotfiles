@@ -1,20 +1,39 @@
 return {
 	"williamboman/mason.nvim",
 	cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-	opts = function()
-		return require("plugins.config.mason")
-	end,
-	config = function(_, opts)
-		require("mason").setup(opts)
+	config = function()
+		local mason_servers = {
+			"clangd",
+			"cmake-language-server",
+			"lua-language-server",
+			"marksman",
+			"python-lsp-server",
+			"rust-analyzer",
+			"texlab",
+		}
+
+		require("mason").setup({
+			ensure_installed = mason_servers,
+			PATH = "prepend",
+			ui = {
+				icons = {
+					package_pending = " ",
+					package_installed = "󰄳 ",
+					package_uninstalled = " 󰚌",
+				},
+			},
+
+			max_concurrent_installers = 10,
+		})
 
 		-- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/plugins/init.lua
 		vim.api.nvim_create_user_command("MasonInstallAll", function()
-			if opts.ensure_installed and #opts.ensure_installed > 0 then
+			if mason_servers and #mason_servers > 0 then
 				vim.cmd("Mason")
 				local mr = require("mason-registry")
 
 				mr.refresh(function()
-					for _, tool in ipairs(opts.ensure_installed) do
+					for _, tool in ipairs(mason_servers) do
 						local p = mr.get_package(tool)
 						if not p:is_installed() then
 							p:install()
@@ -23,7 +42,5 @@ return {
 				end)
 			end
 		end, {})
-
-		vim.g.mason_binaries_list = opts.ensure_installed
 	end,
 }

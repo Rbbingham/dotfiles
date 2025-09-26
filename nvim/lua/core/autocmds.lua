@@ -86,5 +86,5 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
 	group = augroup("insert_term"),
-	command = "startinsert"
+	command = "startinsert",
 })
