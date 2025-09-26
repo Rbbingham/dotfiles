@@ -113,6 +113,7 @@ M.cmp = function()
 		sources = {
 			{ name = "nvim_lsp", priority = 1000 },
 			{ name = "luasnip", priority = 750 },
+			{ name = "nvim_lua", priority = 750 },
 			{ name = "path", priority = 500 },
 			{ name = "buffer", priority = 250 },
 		},
@@ -185,6 +186,7 @@ return {
 		{
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 		},
