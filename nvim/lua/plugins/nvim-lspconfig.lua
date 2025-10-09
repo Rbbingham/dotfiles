@@ -89,8 +89,13 @@ return {
 			virtual_text = { prefix = "" },
 		})
 
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = function(args)
+				on_attach(_, args.buf)
+			end
+		})
+
 		vim.lsp.config("*", {
-			on_attach = on_attach,
 			capabilities = capabilities,
 		})
 
