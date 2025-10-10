@@ -1,7 +1,6 @@
 return {
 	cmd = { "texlab" },
 	filetypes = { "tex", "plaintex", "bib" },
-	single_file_support = true,
 	settings = {
 		build = {
 			args = { "-pdf", "-output-directory=build", "-interaction=nonstopmode", "-synctex=1", "%f" },

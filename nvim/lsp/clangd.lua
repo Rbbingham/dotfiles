@@ -7,5 +7,4 @@ return {
 		"--header-insertion=iwyu",
 		"-j=6"
 	},
-	single_file_support = true,
 }
