@@ -104,6 +104,7 @@ return {
 			"cmake",
 			"lua_ls",
 			"marksman",
+			"rust_analyzer",
 			"pylsp",
 			"texlab",
 		})
