@@ -1,4 +1,4 @@
-vim.lsp.config("clangd", {
+return {
 	cmd = {
 		"clangd",
 		"--all-scopes-completion",
@@ -7,4 +7,4 @@ vim.lsp.config("clangd", {
 		"--header-insertion=iwyu",
 		"-j=6",
 	},
-})
+}

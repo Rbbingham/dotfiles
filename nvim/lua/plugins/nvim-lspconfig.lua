@@ -105,7 +105,6 @@ return {
 			"lua_ls",
 			"marksman",
 			"pylsp",
-			"rust-analyzer",
 			"texlab",
 		})
 	end,

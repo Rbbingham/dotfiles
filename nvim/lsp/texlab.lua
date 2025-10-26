@@ -1,4 +1,4 @@
-vim.lsp.config("texlab", {
+return {
 	settings = {
 		auxDirectory = "build",
 		build = {
@@ -11,4 +11,4 @@ vim.lsp.config("texlab", {
 			executable = "zathura",
 		},
 	},
-})
+}
