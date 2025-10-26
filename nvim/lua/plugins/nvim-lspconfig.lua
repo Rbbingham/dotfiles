@@ -92,7 +92,7 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function(args)
 				on_attach(_, args.buf)
-			end
+			end,
 		})
 
 		vim.lsp.config("*", {

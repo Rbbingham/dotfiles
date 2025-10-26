@@ -1,3 +1,4 @@
+-- stylua: ignore start
 local options = {
 	------------------------------------------------------------------------
 	--                         General settings                           --
@@ -87,6 +88,7 @@ local global = {
 	load_doxygen_syntax = 1,
 	doxygen_enhanced_color = 1,
 }
+-- stylua: ignore end
 
 for name, value in pairs(options) do
 	vim.opt[name] = value
