@@ -2,13 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	event = "VeryLazy",
 	dependencies = {
-		{
-			"nvim-lua/plenary.nvim",
-		},
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
-		},
+		{ "nvim-lua/plenary.nvim", },
 	},
 	config = function()
 		require("telescope").setup({
@@ -31,7 +25,5 @@ return {
 				sorting_strategy = "ascending",
 			},
 		})
-
-		require("telescope").load_extension("fzf")
 	end,
 }
