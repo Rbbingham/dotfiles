@@ -10,6 +10,7 @@ return {
 			"python-lsp-server",
 			"rust-analyzer",
 			"texlab",
+			"tinymist",
 		}
 
 		require("mason").setup({

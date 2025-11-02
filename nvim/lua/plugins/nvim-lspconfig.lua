@@ -72,10 +72,6 @@ return {
 
 		local severity = vim.diagnostic.severity
 		vim.diagnostic.config({
-			float = {
-				border = "single",
-				scrollbar = true,
-			},
 			severity_sort = true,
 			signs = {
 				text = {
@@ -104,9 +100,10 @@ return {
 			"cmake",
 			"lua_ls",
 			"marksman",
-			"rust_analyzer",
 			"pylsp",
+			"rust_analyzer",
 			"texlab",
+			"tinymist",
 		})
 	end,
 }
