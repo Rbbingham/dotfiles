@@ -9,6 +9,7 @@ return {
 			"marksman",
 			"python-lsp-server",
 			"rust-analyzer",
+			"tree-sitter-cli",
 			"texlab",
 			"tinymist",
 		}
