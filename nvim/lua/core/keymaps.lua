@@ -78,28 +78,29 @@ map("t", "<esc>", "<C-\\><C-n>", { silent = true })
 map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
 -- general mappings
-map("n", "<leader><space>", "<cmd>Telescope buffers<CR>", { desc = "[ ] Find existing buffers" })
-map("n", "<leader>?", "<cmd>Telescope oldfiles<CR>", { desc = "[?] Find recently opened files" })
-map("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "[/] Fuzzily search in current buffer" })
+map("n", "<leader><space>", "<cmd>FzfLua buffers<CR>", { desc = "[ ] Find existing buffers" })
+map("n", "<leader>?", "<cmd>FzfLua oldfiles<CR>", { desc = "[?] Find recently opened files" })
+map("n", "<leader>/", "<cmd>FzfLua blines<CR>", { desc = "[/] Fuzzily search in current buffer" })
 
 -- search mappings
-map("n", "<leader>sd", "<cmd>Telescope diagnostics<CR>", { desc = "[S]earch [D]iagnostics" })
-map("n", "<leader>sf", "<cmd>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
-map("n", "<leader>sg", "<cmd>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
-map("n", "<leader>sh", "<cmd>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
-map("n", "<leader>sr", "<cmd>Telescope resume<CR>", { desc = "[S]earch [R]esume" })
-map("n", "<leader>sw", "<cmd>Telescope grep_string<CR>", { desc = "[S]earch current [W]ord" })
+map("n", "<leader>sd", "<cmd>FzfLua diagnostics_workspace<CR>", { desc = "[S]earch [D]iagnostics" })
+map("n", "<leader>sf", "<cmd>FzfLua files<CR>", { desc = "[S]earch [F]iles" })
+map("n", "<leader>sg", "<cmd>FzfLua live_grep<CR>", { desc = "[S]earch by [G]rep" })
+map("n", "<leader>sh", "<cmd>FzfLua helptags<CR>", { desc = "[S]earch [H]elp" })
+map("n", "<leader>sr", "<cmd>FzfLua resume<CR>", { desc = "[S]earch [R]esume" })
 map(
 	"n",
 	"<leader>sa",
-	"<cmd>Telescope find_files hidden=true follow=true no_ignore=true<CR>",
+	"<cmd>FzfLua files hidden=true follow=true no_ignore=true<CR>",
 	{ desc = "[S]earch [A]ll files" }
 )
+map("n", "<leader>sq", "<cmd>FzfLua quickfix<CR>", { desc = "[S]earch [Q]uickfix list" })
+map("n", "<leader>sl", "<cmd>FzfLua loclist<CR>", { desc = "[S]earch [L]ocation list" })
 
 -- git mappings
-map("n", "<leader>gf", "<cmd>Telescope git_files<CR>", { desc = "Search [G]it [F]iles" })
-map("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Search [G]it [B]ranches" })
-map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Search [G]it [C]ommits" })
+map("n", "<leader>gf", "<cmd>FzfLua git_files<CR>", { desc = "Search [G]it [F]iles" })
+map("n", "<leader>gb", "<cmd>FzfLua git_branches<CR>", { desc = "Search [G]it [B]ranches" })
+map("n", "<leader>gc", "<cmd>FzfLua git_commits<CR>", { desc = "Search [G]it [C]ommits" })
 map("n", "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview [G]it [H]unk" })
 map("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "[G]it [S]tage hunk" })
 map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "[G]it [S]tage buffer" })
