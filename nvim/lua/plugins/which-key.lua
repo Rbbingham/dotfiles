@@ -7,7 +7,6 @@ return {
 			{ "<leader>d", name = "[D]ocument" },
 			{ "<leader>g", name = "[G]it" },
 			{ "<leader>s", name = "[S]earch" },
-			{ "<leader>t", name = "[T]rouble" },
 			{ "<leader>w", name = "[W]orkspace" },
 		},
 	},
