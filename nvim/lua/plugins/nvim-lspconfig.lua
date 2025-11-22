@@ -9,14 +9,14 @@ return {
 			end
 
 			local map = vim.keymap.set
-			map("n", "gd", require("telescope.builtin").lsp_definitions, opts("[G]oto [D]efinition"))
-			map("n", "gI", require("telescope.builtin").lsp_implementations, opts("[G]oto [I]mplementation"))
-			map("n", "<leader>D", require("telescope.builtin").lsp_type_definitions, opts("Type [D]efinition"))
-			map("n", "<leader>ds", require("telescope.builtin").lsp_document_symbols, opts("[D]ocument [S]ymbols"))
+			map("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", opts("[G]oto [D]efinition"))
+			map("n", "gI", "<cmd>FzfLua lsp_implementations<CR>", opts("[G]oto [I]mplementation"))
+			map("n", "<leader>D", "<cmd>FzfLua lsp_typedefs<CR>", opts("Type [D]efinition"))
+			map("n", "<leader>ds", "<cmd>FzfLua lsp_document_symbols<CR>", opts("[D]ocument [S]ymbols"))
 			map(
 				"n",
 				"<leader>ws",
-				require("telescope.builtin").lsp_dynamic_workspace_symbols,
+				"<cmd>FzfLua lsp_live_workspace_symbols<CR>",
 				opts("[W]orkspace [S]ymbols")
 			)
 
