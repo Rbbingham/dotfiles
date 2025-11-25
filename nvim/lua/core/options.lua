@@ -8,6 +8,7 @@ local options = {
 	cursorline = true,                      -- highlight text line of cursor
 	laststatus = 3,                         -- global statusline
 	nrformats = "hex,bin,unsigned",         -- set inc/dec
+	scrolloff = 5,                          -- number of lines to keep above and below cursor
 	termguicolors = true,                   -- enable 24-bit RGB color in the TUI
 	timeoutlen = 400,                       -- time delay on <Leader> key
 	updatetime = 250,                       -- update time
