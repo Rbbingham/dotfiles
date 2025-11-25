@@ -26,7 +26,6 @@ local options = {
 	--                         Buffers management                         --
 	------------------------------------------------------------------------
 	showtabline = 2,                        -- always show tab page
-	switchbuf = "useopen,usetab,newtab",    -- set behavior when switching between buffers
 
 	------------------------------------------------------------------------
 	--                         Multiple windows                           --
