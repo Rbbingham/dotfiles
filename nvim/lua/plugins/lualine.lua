@@ -7,7 +7,7 @@ return {
 			icons_enabled = true,
 			theme = "auto",
 			component_separators = { left = "", right = "" },
-			section_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
 				statusline = {},
 				winbar = {},
@@ -20,12 +20,8 @@ return {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
 			lualine_c = { { "filename", path = 1 }, "searchcount" },
-			lualine_x = { "encoding", "fileformat", "filetype" },
-			lualine_y = {
-				function()
-					return " " .. os.date("%R")
-				end,
-			},
+			lualine_x = { "lsp_status" },
+			lualine_y = { "encoding", "fileformat", "filetype" },
 			lualine_z = {
 				{ "location", padding = { left = 0, right = 1 } },
 				{ "progress", seperator = " ", padding = { left = 1, right = 1 } },
