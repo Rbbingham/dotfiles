@@ -16,7 +16,6 @@ return {
 				"doxygen",
 				"html",
 				"json",
-				"latex",
 				"lua",
 				"luadoc",
 				"make",
