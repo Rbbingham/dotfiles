@@ -88,6 +88,8 @@ map("n", "<leader>sf", "<cmd>FzfLua files<CR>", { desc = "[S]earch [F]iles" })
 map("n", "<leader>sg", "<cmd>FzfLua live_grep<CR>", { desc = "[S]earch by [G]rep" })
 map("n", "<leader>sh", "<cmd>FzfLua helptags<CR>", { desc = "[S]earch [H]elp" })
 map("n", "<leader>sr", "<cmd>FzfLua resume<CR>", { desc = "[S]earch [R]esume" })
+map("n", "<leader>sw", "<cmd>FzfLua grep_cword<CR>", { desc = "[S]earch [R]esume" })
+map("n", "<leader>sW", "<cmd>FzfLua grep_cWORD<CR>", { desc = "[S]earch [R]esume" })
 map(
 	"n",
 	"<leader>sa",
