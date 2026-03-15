@@ -1,24 +1,17 @@
-local function augroup(name)
-	return vim.api.nvim_create_augroup("nvim_" .. name, { clear = true })
-end
-
 -- check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-	group = augroup("checktime"),
 	command = "checktime",
 })
 
 -- highlight on yank
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-	group = augroup("highlight_yank"),
+vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.hl.on_yank()
 	end,
 })
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-	group = augroup("resize_splits"),
+vim.api.nvim_create_autocmd("VimResized", {
 	callback = function()
 		local current_tab = vim.fn.tabpagenr()
 		vim.cmd("tabdo wincmd =")
@@ -27,8 +20,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 })
 
 -- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-	group = augroup("last_loc"),
+vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
 		local mark = vim.api.nvim_buf_get_mark(0, '"')
 		local lcount = vim.api.nvim_buf_line_count(0)
@@ -39,8 +31,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 })
 
 -- close some filetypes with <q>
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	group = augroup("close_with_q"),
+vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"PlenaryTestPopup",
 		"checkhealth",
@@ -64,7 +55,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
-	group = augroup("wrap_spell"),
 	pattern = { "text", "plaintex", "gitcommit", "markdown" },
 	callback = function()
 		vim.opt_local.wrap = true
@@ -73,8 +63,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	group = augroup("auto_create_dir"),
+vim.api.nvim_create_autocmd("BufWritePre", {
 	callback = function(event)
 		if event.match:match("^%w%w+:[\\/][\\/]") then
 			return
@@ -84,7 +73,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "TermOpen" }, {
-	group = augroup("insert_term"),
+vim.api.nvim_create_autocmd("TermOpen", {
 	command = "startinsert",
 })
