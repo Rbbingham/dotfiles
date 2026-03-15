@@ -76,3 +76,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("TermOpen", {
 	command = "startinsert",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
+})
+
+vim.api.nvim_create_user_command("TSInstallAll", function()
+	local config = require("lazy.core.config").plugins["nvim-treesitter"]
+	local opts = type(config.opts) == "table" and config.opts or {}
+	require("nvim-treesitter").install(opts.ensure_installed)
+end, {})
