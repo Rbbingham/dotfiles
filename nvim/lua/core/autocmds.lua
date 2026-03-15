@@ -84,6 +84,18 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- https://github.com/L3MON4D3/LuaSnip/issues/258
+vim.api.nvim_create_autocmd("ModeChanged", {
+	pattern = "*",
+	callback = function()
+		if require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+				and not require("luasnip").session.jump_active
+		then
+			require("luasnip").unlink_current()
+		end
+	end
+})
+
 vim.api.nvim_create_user_command("TSInstallAll", function()
 	local config = require("lazy.core.config").plugins["nvim-treesitter"]
 	local opts = type(config.opts) == "table" and config.opts or {}
