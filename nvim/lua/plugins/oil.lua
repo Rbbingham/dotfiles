@@ -55,9 +55,9 @@ return {
 						end
 
 						vim.ui.input({ prompt = fullpath .. " > " }, on_confirm)
-					end
+					end,
+					desc = "Execute command on current file and open output in split buffer"
 				},
-				desc = "Execute command on current file and open output in split buffer",
 			},
 			view_options = {
 				show_hidden = true,
