@@ -117,17 +117,6 @@ map("v", "<leader>gr", function()
 	require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 end, { desc = "[G]it [R]eset hunk" })
 
--- telekasten keymaps
-map("n", "<leader>zl", "<cmd>Telekasten insert_link<CR>", { desc = "[Z]ettelkasten insert [L]ink" })
-map("n", "<leader>zi", "<cmd>Telekasten insert_img_link<CR>", { desc = "[Z]ettelkasten insert [I]mg link" })
-map("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>", { desc = "[Z]ettelkasten show [B]acklinks" })
-map("n", "<leader>zc", "<cmd>Telekasten show_calendar<CR>", { desc = "[Z]ettelkasten show [C]alender" })
-map("n", "<leader>zn", "<cmd>Telekasten new_note<CR>", { desc = "[Z]ettelkasten new [N]ote" })
-map("n", "<leader>zg", "<cmd>Telekasten follow_link<CR>", { desc = "[Z]ettelkasten [G]oto note" })
-map("n", "<leader>zt", "<cmd>Telekasten goto_today<CR>", { desc = "[Z]ettelkasten goto [T]oday" })
-map("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>", { desc = "[Z]ettelkasten [F]ind note" })
-map("n", "<leader>z", "<cmd>Telekasten panel<CR>", { desc = "[Z]ettelkasten" })
-
 -- refactoring keymaps
 map("x", "<leader>re", ":Refactor extract ", { desc = "[R]efactor [E]xtract" })
 map("x", "<leader>rf", ":Refactor extract_to_file ", { desc = "[R]efactor extract to [F]ile" })
