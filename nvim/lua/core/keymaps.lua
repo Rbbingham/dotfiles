@@ -10,12 +10,6 @@ map("i", "<C-l>", "<Right>", { desc = "Move right", remap = true })
 map("i", "<C-j>", "<Down>", { desc = "Move down", remap = true })
 map("i", "<C-k>", "<Up>", { desc = "Move up", remap = true })
 
--- move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
-
 -- resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
 map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
@@ -39,9 +33,6 @@ map("n", "<Leader>b", "<cmd>enew<CR>", { desc = "New buffer" })
 
 -- clear search with <esc>
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Escape and clear hlsearch" })
-
--- save file
-map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr>", { desc = "Save file" })
 
 -- better indenting
 map("n", "<TAB>", ">>")
