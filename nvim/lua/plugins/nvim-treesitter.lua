@@ -1,7 +1,7 @@
 return {
-	-- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPost", "BufNewFile" },
+	event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+	cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
 	build = ":TSUpdate | TSInstallAll",
 	opts = {
 		ensure_installed = {
@@ -10,9 +10,11 @@ return {
 			"cmake",
 			"comment",
 			"cpp",
+			"css",
 			"diff",
 			"doxygen",
 			"html",
+			"javascript",
 			"json",
 			"lua",
 			"luadoc",
@@ -24,6 +26,7 @@ return {
 			"regex",
 			"rust",
 			"sql",
+			"typescript",
 			"typst",
 			"vimdoc",
 			"yaml",
