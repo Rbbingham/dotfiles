@@ -117,21 +117,6 @@ map("v", "<leader>gr", function()
 	require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 end, { desc = "[G]it [R]eset hunk" })
 
--- refactoring keymaps
-map("x", "<leader>re", ":Refactor extract ", { desc = "[R]efactor [E]xtract" })
-map("x", "<leader>rf", ":Refactor extract_to_file ", { desc = "[R]efactor extract to [F]ile" })
-map("x", "<leader>rv", ":Refactor extract_var ", { desc = "[R]efactor [V]ar" })
-map({ "n", "x" }, "<leader>ri", ":Refactor inline_var", { desc = "[R]efactor [I]line var" })
-map("n", "<leader>rI", ":Refactor inline_func", { desc = "[R]efactor [I]line func" })
-map("n", "<leader>rb", ":Refactor extract_block", { desc = "[R]efactor [B]lock" })
-map("n", "<leader>rbf", ":Refactor extract_block_to_file", { desc = "[R]efactor [B]lock to [F]ile" })
-map("n", "<leader>rd", function() require('refactoring').debug.printf({ below = false }) end,
-	{ desc = "[R]efactoring [D]ebug printf" })
-map({ "x", "n" }, "<leader>rp", function() require('refactoring').debug.print_var() end,
-	{ desc = "[R]efactoring debug [P]rint var" })
-map("n", "<leader>rc", function() require('refactoring').debug.cleanup({}) end,
-	{ desc = "[R]efactoring debug [C]leanup" })
-
 -- nvim-treesitter-textobjects keymaps
 local textobjects = require("nvim-treesitter-textobjects.select")
 vim.keymap.set({ "x", "o" }, "aa", function()
