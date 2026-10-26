@@ -1,38 +1,17 @@
 return {
-	-- autocompletion
 	"saghen/blink.cmp",
 	version = "1.*",
 	event = { "InsertEnter", "CmdLineEnter" },
 	dependencies = {
-		{
-			-- snippet plugin
-			"L3MON4D3/LuaSnip",
-			dependencies = { "rafamadriz/friendly-snippets" },
-			opts = {
-				update_events = "TextChanged,TextChangedI",
-			},
-			config = function(_, opts)
-				require("luasnip").config.set_config(opts)
-				require("luasnip.loaders.from_vscode").lazy_load()
-				require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets/" })
-			end,
-		},
-
-		-- autopairing of (){}[] etc
-		{
-			"windwp/nvim-autopairs",
-			opts = {
-				fast_wrap = {},
-			},
-		},
+		"rafamadriz/friendly-snippets",
 	},
 
 	opts = {
-		snippets = { preset = "luasnip" },
+		snippets = { preset = "default" },
 		cmdline = { enabled = true },
 		appearance = { nerd_font_variant = "normal" },
 		fuzzy = { implementation = "prefer_rust" },
-		sources = { default = { "lsp", "snippets", "buffer", "path" } },
+		sources = { default = { "lsp", "path", "snippets", "buffer" } },
 
 		keymap = {
 			preset = "default",
@@ -44,10 +23,16 @@ return {
 		},
 
 		completion = {
+			accept = {
+				auto_brackets = {
+					enabled = true,
+				},
+			},
 			menu = {
 				scrollbar = false,
 				draw = {
 					columns = { { "kind_icon" }, { "label" }, { "kind" } },
+					treesitter = { "lsp" },
 				},
 			},
 			documentation = {

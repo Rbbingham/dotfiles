@@ -4,14 +4,13 @@ return {
 	config = function()
 		local mason_servers = {
 			"clangd",
-			"cmake-language-server",
 			"lua-language-server",
 			"marksman",
 			"python-lsp-server",
+			"ruff",
 			"rust-analyzer",
-			"tree-sitter-cli",
-			"texlab",
 			"tinymist",
+			"tree-sitter-cli",
 		}
 
 		require("mason").setup({
