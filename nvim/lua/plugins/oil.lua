@@ -43,14 +43,27 @@ return {
 
 						--- @param input string
 						local on_confirm = function(input)
-							if input == nil or input == "" then
+							if input == nil then
 								return
 							end
-							if vim.fn.executable(vim.split(input, " ")[1]) == 0 then
+
+							input = input:match("^()%s*$") and "" or input:match("^%s*(.*%S)")
+
+							if input == "" then
+								return
+							end
+
+							local command
+							if input:find("{}") then
+								command = vim.split(input:gsub("{}", fullpath), " ")
+							else
+								command = vim.list_extend(vim.split(input, " "), { fullpath })
+							end
+
+							if vim.fn.executable(command[1]) == 0 then
 								print("Input is not an executable")
 								return
 							end
-							local command = vim.list_extend(vim.split(input, " "), { fullpath })
 							vim.system(command, { text = true }, on_exit)
 						end
 
