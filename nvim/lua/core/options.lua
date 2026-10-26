@@ -1,87 +1,74 @@
 -- stylua: ignore start
-local options = {
-	------------------------------------------------------------------------
-	--                         General settings                           --
-	------------------------------------------------------------------------
-	clipboard = "unnamedplus",              -- sync clipboard between OS and Neovim
-	completeopt = "menuone,noselect,fuzzy", -- customize insert mode completion
-	cursorline = true,                      -- highlight text line of cursor
-	laststatus = 3,                         -- global statusline
-	nrformats = "hex,bin,unsigned",         -- set inc/dec
-	scrolloff = 5,                          -- number of lines to keep above and below cursor
-	termguicolors = true,                   -- enable 24-bit RGB color in the TUI
-	timeoutlen = 400,                       -- time delay on <Leader> key
-	updatetime = 250,                       -- update time
-	virtualedit = "block",                  -- allow cursor to go past end of line in visual block mode
+------------------------------------------------------------------------
+--                         General settings                           --
+------------------------------------------------------------------------
+vim.opt.clipboard      = "unnamedplus"            -- sync clipboard between OS and Neovim
+vim.opt.completeopt    = "menuone,noselect,fuzzy" -- customize insert mode completion
+vim.opt.cursorline     = true                     -- highlight text line of cursor
+vim.opt.laststatus     = 3                        -- global statusline
+vim.opt.nrformats      = "hex,bin,unsigned"       -- set inc/dec
+vim.opt.scrolloff      = 5                        -- number of lines to keep above and below cursor
+vim.opt.termguicolors  = true                     -- enable 24-bit RGB color in the TUI
+vim.opt.timeoutlen     = 400                      -- time delay on <Leader> key
+vim.opt.virtualedit    = "block"                  -- allow cursor to go past end of line in visual block mode
 
-	------------------------------------------------------------------------
-	--                         Files and backup                           --
-	------------------------------------------------------------------------
-	fileencoding = "utf-8",                 -- encoding written to file
-	fileformats = "unix",                   -- use Unix as the standard file type
-	swapfile = false,                       -- disable swap files
-	undofile = true,                        -- enable persistent undo
-	writebackup = false,                    -- prevents automatic write backup
+------------------------------------------------------------------------
+--                         Files and backup                           --
+------------------------------------------------------------------------
+vim.opt.fileencoding   = "utf-8"                  -- encoding written to file
+vim.opt.fileformats    = "unix"                   -- use Unix as the standard file type
+vim.opt.swapfile       = false                    -- disable swap files
+vim.opt.undofile       = true                     -- enable persistent undo
+vim.opt.writebackup    = false                    -- prevents automatic write backup
 
-	------------------------------------------------------------------------
-	--                         Buffers management                         --
-	------------------------------------------------------------------------
-	showtabline = 2,                        -- always show tab page
+------------------------------------------------------------------------
+--                         Buffers management                         --
+------------------------------------------------------------------------
+vim.opt.showtabline    = 2                        -- always show tab page
 
-	------------------------------------------------------------------------
-	--                         Multiple windows                           --
-	------------------------------------------------------------------------
-	splitbelow = true,                      -- put split window below current one
-	splitright = true,                      -- put split window to the right of current one
-	winborder = "single",                   -- border around floating window
+------------------------------------------------------------------------
+--                         Multiple windows                           --
+------------------------------------------------------------------------
+vim.opt.splitbelow     = true                     -- put split window below current one
+vim.opt.splitright     = true                     -- put split window to the right of current one
+vim.opt.winborder      = "single"                 -- border around floating window
 
-	------------------------------------------------------------------------
-	--                         Indentation tabs                           --
-	------------------------------------------------------------------------
-	copyindent = true,                      -- copy the previous indentation on autoindenting
-	list = true,                            -- don't show tabs
-	listchars = "tab:┊ ,trail:¬",           -- set tab and end-of-line characters
-	preserveindent = true,                  -- preserve indent as much as possible
-	shiftwidth = 2,                         -- number of spaces to use for indent
-	smartindent = true,                     -- enable smartindent
-	softtabstop = 2,                        -- number of spaces that a <TAB> counts for while performing editing ops
-	tabstop = 2,                            -- number of spaces that a <TAB> counts for
+------------------------------------------------------------------------
+--                         Indentation tabs                           --
+------------------------------------------------------------------------
+vim.opt.copyindent     = true                     -- copy the previous indentation on autoindenting
+vim.opt.list           = true                     -- don't show tabs
+vim.opt.listchars      = "tab:┊ ,trail:¬"         -- set tab and end-of-line characters
+vim.opt.preserveindent = true                     -- preserve indent as much as possible
+vim.opt.shiftwidth     = 2                        -- number of spaces to use for indent
+vim.opt.smartindent    = true                     -- enable smartindent
+vim.opt.softtabstop    = 2                        -- number of spaces that a <TAB> counts for while performing editing ops
+vim.opt.tabstop        = 2                        -- number of spaces that a <TAB> counts for
 
-	------------------------------------------------------------------------
-	--                         Moving around lines                        --
-	------------------------------------------------------------------------
-	breakindent = true,                     -- enable wrapped lines to continue indent
-	colorcolumn = "80",                     -- column at 80 width
-	conceallevel = 2,                       -- concealed text is hidden unless it has a custom replacement char
-	linebreak = true,                       -- don't break words
-	number = true,                          -- print line number in front of line
-	numberwidth = 2,                        -- minimal number of columns to use for line number
-	relativenumber = true,                  -- show line number relative to cursor
-	showbreak = "↳ ",                       -- symbol to show on wrapped lines
-	whichwrap = "<,>,h,l",                  -- specify commands to wrap to another line
+------------------------------------------------------------------------
+--                         Moving around lines                        --
+------------------------------------------------------------------------
+vim.opt.breakindent    = true                     -- enable wrapped lines to continue indent
+vim.opt.colorcolumn    = "80"                     -- column at 80 width
+vim.opt.conceallevel   = 2                        -- concealed text is hidden unless it has a custom replacement char
+vim.opt.linebreak      = true                     -- don't break words
+vim.opt.number         = true                     -- print line number in front of line
+vim.opt.numberwidth    = 2                        -- minimal number of columns to use for line number
+vim.opt.relativenumber = true                     -- show line number relative to cursor
+vim.opt.showbreak      = "↳ "                     -- symbol to show on wrapped lines
+vim.opt.whichwrap      = "<,>,h,l"                -- specify commands to wrap to another line
 
-	------------------------------------------------------------------------
-	--                         Search, vimgrep, and grep                  --
-	------------------------------------------------------------------------
-	ignorecase = true,                      -- ignore case when searching
-	inccommand = "split",                   -- split window preview for substitution
-	infercase = true,                       -- infer cases in keyword completion
-	smartcase = true,                       -- try to be smart about case
-}
+------------------------------------------------------------------------
+--                         Search,vimgrepand grep                     --
+------------------------------------------------------------------------
+vim.opt.ignorecase     = true                     -- ignore case when searching
+vim.opt.inccommand     = "split"                  -- split window preview for substitution
+vim.opt.infercase      = true                     -- infer cases in keyword completion
+vim.opt.smartcase      = true                     -- try to be smart about case
 
-local global = {
-	loaded_node_provider = 0,               -- disable node provider
-	loaded_perl_provider = 0,               -- disable Perl provider
-	loaded_ruby_provider = 0,               -- disable ruby provider
-	mapleader = ",",                        -- set the leader key
-	maplocalleader = ",",                   -- set the local leader key
-}
+vim.g.loaded_node_provider   = 0                  -- disable node provider
+vim.g.loaded_perl_provider   = 0                  -- disable Perl provider
+vim.g.loaded_ruby_provider   = 0                  -- disable ruby provider
+vim.g.mapleader              = ","                -- set the leader key
+vim.g.maplocalleader         = ","                -- set the local leader key
 -- stylua: ignore end
-
-for name, value in pairs(options) do
-	vim.opt[name] = value
-end
-
-for name, value in pairs(global) do
-	vim.g[name] = value
-end
