@@ -34,6 +34,7 @@ require("lazy").setup("plugins", {
 			disabled_plugins = {
 				"netrwPlugin",
 				"tutor",
+				"dir",
 			},
 		},
 		cache = {

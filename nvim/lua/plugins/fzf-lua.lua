@@ -1,6 +1,7 @@
 return {
 	"ibhagwan/fzf-lua",
-	event = "VeryLazy",
+	lazy = true,
+	cmd = "FzfLua",
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 	},
